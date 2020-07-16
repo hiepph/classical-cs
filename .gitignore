@@ -1,0 +1,13 @@
+__pycache__
+*.java
+*.kt
+*.pdf
+*.js
+*.rb
+*.cpp
+*.hs
+*.cs
+*.rs
+*.scala
+*.txt
+.DS_Store
