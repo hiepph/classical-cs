@@ -42,9 +42,17 @@ def cons_lis(A):
     return paths
 
 
+D = dict()
+
+
 def lis2(A, last_index):
     """Recursion optimization.
     It remains to add memoization through `last_index`"""
+    ##
+    if last_index in D:
+        return D[last_index]
+    ##
+
     if last_index == -1:
         last_element = float("-inf")
     else:
@@ -54,6 +62,12 @@ def lis2(A, last_index):
     for i in range(last_index + 1, len(A)):
         if A[i] > last_element:
             result = max(result, 1 + lis2(A, i))
+
+    ##
+    if last_index not in D:
+        D[last_index] = result
+    ##
+
     return result
 
 
