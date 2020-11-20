@@ -41,10 +41,25 @@ def cons_lis(A):
     paths.reverse()
     return paths
 
-    return max(T[i] for i in range(len(A)))
+
+def lis2(A, last_index):
+    """Recursion optimization.
+    It remains to add memoization through `last_index`"""
+    if last_index == -1:
+        last_element = float("-inf")
+    else:
+        last_element = A[last_index]
+    result = 0
+
+    for i in range(last_index + 1, len(A)):
+        if A[i] > last_element:
+            result = max(result, 1 + lis2(A, i))
+    return result
 
 
 def test_lis():
     A = [7, 2, 1, 3, 8, 4, 9, 1, 2, 6, 5, 9, 3]
     assert lis(A) == 5
     assert cons_lis(A) == [2, 3, 4, 6, 9]
+
+    assert lis2(A, last_index=-1) == 5
