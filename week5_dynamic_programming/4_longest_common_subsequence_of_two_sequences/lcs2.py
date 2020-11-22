@@ -1,22 +1,25 @@
-#Uses python3
-
-import sys
-
 def lcs2(a, b):
-    #write your code here
-    return min(len(a), len(b))
+    a = [None] + a
+    b = [None] + b
 
-if __name__ == '__main__':
-    input = sys.stdin.read()
-    data = list(map(int, input.split()))
+    M = []
+    for i in range(len(a)):
+        row = []
+        for j in range(len(b)):
+            row.append(0)
+        M.append(row)
 
-    n = data[0]
-    data = data[1:]
-    a = data[:n]
+    for i in range(1, len(a)):
+        for j in range(1, len(b)):
+            if a[i] == b[j]:
+                M[i][j] = M[i][j - 1] + 1
+            else:
+                M[i][j] = max(M[i][j - 1], M[i - 1][j])
 
-    data = data[n:]
-    m = data[0]
-    data = data[1:]
-    b = data[:m]
+    return M[len(a) - 1][len(b) - 1]
 
-    print(lcs2(a, b))
+
+def test():
+    assert(lcs2([2, 7, 5], [2, 5])) == 2
+    assert(lcs2([7], [1, 2, 3, 4])) == 0
+    assert(lcs2([2, 7, 8, 3], [5, 2, 8, 7])) == 2
