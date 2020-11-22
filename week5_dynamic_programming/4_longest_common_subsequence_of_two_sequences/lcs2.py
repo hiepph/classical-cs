@@ -12,11 +12,11 @@ def lcs2(a, b):
     for i in range(1, len(a)):
         for j in range(1, len(b)):
             if a[i] == b[j]:
-                M[i][j] = M[i][j - 1] + 1
+                M[i][j] = M[i - 1][j - 1] + 1
             else:
                 M[i][j] = max(M[i][j - 1], M[i - 1][j])
 
-    return M[len(a) - 1][len(b) - 1]
+    return M[-1][-1]
 
 
 def test():
