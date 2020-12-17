@@ -10,3 +10,4 @@ __pycache__
 *.scala
 *.txt
 .DS_Store
+tests
