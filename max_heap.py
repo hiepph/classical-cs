@@ -4,12 +4,13 @@ import math
 class MaxHeap():
     def __init__(self, init=[]):
         self.max_size = 1000
+        self.n = len(init)
         self.size = len(init)
         self.__h = [None] * self.max_size
         self.__h[:self.size] = init
 
     def __str__(self):
-        return str(self.__h[:self.size])
+        return str(self.__h[:self.n])
 
     def _parent(self, i):
         if i % 2 == 0:
@@ -34,10 +35,10 @@ class MaxHeap():
     def _sift_down(self, i):
         max_index = i
         l = self._left_child(i)
-        if l <= self.size and self.__h[l] >= self.__h[max_index]:
+        if l < self.size and self.__h[l] >= self.__h[max_index]:
             max_index = l
         r = self._right_child(i)
-        if r <= self.size and self.__h[r] >= self.__h[max_index]:
+        if r < self.size and self.__h[r] >= self.__h[max_index]:
             max_index = r
 
         if i != max_index and max_index < self.size:
@@ -73,6 +74,17 @@ class MaxHeap():
         else:
             self._sift_down(i)
 
+    def build(self):
+        for i in range(self.size // 2, -1, -1):
+            self._sift_down(i)
+
+    def sort(self):
+        self.build()
+        for _ in range(self.size - 1):
+            self._swap(0, self.size - 1)
+            self.size -= 1
+            self._sift_down(0)
+
 
 if __name__ == '__main__':
     heap = MaxHeap([42, 29, 18, 14, 7, 18, 12, 11, 13])
@@ -90,3 +102,10 @@ if __name__ == '__main__':
 
     heap.change_priority(3, 31)
     print(heap)
+
+    print("----")
+    A = [5, 2, -1, 10, 9, 7, 23]
+    H = MaxHeap(A)
+    H.sort()
+    print("---- sort ----")
+    print(H)
