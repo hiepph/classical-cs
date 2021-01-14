@@ -26,6 +26,15 @@ def is_power_of_two(x):
     return x & (x - 1) == 0
 
 
+def last_bit(x):
+    # or x & ~(x-1)
+    return x & -x
+
+
+def remove_last_bit(x):
+    return x & (x - 1)
+
+
 def test():
     x = int('00000110', 2)
     assert set_bit(x, 5) == int('00100110', 2)
@@ -44,3 +53,6 @@ def test():
 
     x = int('1000', 2)
     assert is_power_of_two(x)
+
+    x = int('0111', 2)
+    assert last_bit(x) == 1
