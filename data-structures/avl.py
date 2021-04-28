@@ -164,14 +164,23 @@ def preorder_print(root: TreeNode):
     preorder_print(root.right)
 
 
-def visualize(G, root: TreeNode):
-    if not root:
-        return root
-
+def r_visualize(G, root: TreeNode):
     G.add_node(root.val)
-    G.add_edge(root.val, visualize(G, root.left))
-    G.add_edge(root.val, visualize(G, root.right))
+    if root.left is not None:
+        G.add_edge(root.val, r_visualize(G, root.left))
+
+    if root.right is not None:
+        G.add_edge(root.val, r_visualize(G, root.right))
     return root.val
+
+
+def visualize(root: TreeNode):
+    G = nx.DiGraph()
+    r_visualize(G, root)
+    nx.planar_layout(G)
+    nx.draw_networkx(G)
+    plt.axis('off')
+    plt.show()
 
 
 if __name__ == '__main__':
@@ -180,14 +189,13 @@ if __name__ == '__main__':
     root = None
     for num in nums:
         root = insert(root, num)
+    preorder_print(root)
 
-    G = nx.DiGraph()
-    visualize(G, root)
-    nx.draw_networkx(G)
-    plt.show()
-
-    # # delete
-    # nums = [9, 5, 10, 0, 6, 11, -1, 1, 2]
-    # root = None
-    # for num in nums:    #     root = insert(root, num)
-    # preorder_print(root)
+    # delete
+    nums = [9, 5, 10, 0, 6, 11, -1, 1, 2]
+    root = None
+    for num in nums:
+        root = insert(root, num)
+    visualize(root)
+    root = delete(root, 10)
+    visualize(root)
