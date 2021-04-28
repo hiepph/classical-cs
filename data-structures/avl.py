@@ -128,6 +128,10 @@ def delete(root: TreeNode, k):
     root = update_height(root)
 
     # rebalance
+    return rebalance(root)
+
+
+def rebalance(root: TreeNode):
     diff = height_diff(root)
 
     # left left
@@ -144,7 +148,6 @@ def delete(root: TreeNode, k):
     if diff < -1 and height_diff(root.right) > 0:
         root.right = right_rotate(root.right)
         return left_rotate(root)
-
     return root
 
 
@@ -155,6 +158,13 @@ def min_node(root: TreeNode):
     return min_node(root.left)
 
 
+def max_node(root: TreeNode):
+    """Right most leaft"""
+    if root is None or root.right is None:
+        return root
+    return max_node(root.right)
+
+
 def preorder_print(root: TreeNode):
     if not root:
         return
@@ -162,6 +172,34 @@ def preorder_print(root: TreeNode):
     print(root.val, end=" ")
     preorder_print(root.left)
     preorder_print(root.right)
+
+
+def merge_with_root(r1: TreeNode, r2: TreeNode, node: TreeNode):
+    if abs(r1.height - r2.height) <= 1:
+        node.left = r1
+        node.right = r2
+        r1.parent = node
+        r2.parent = node
+        node.height = max(r1.height, r2.height) + 1
+        return node
+    elif r1.height > r2.height:
+        temp = merge_with_root(r1.right, r2, node)
+        r1.right = temp
+        temp.parent = r1
+        return rebalance(r1)
+    elif r1.height < r2.height:
+        temp = merge_with_root(r1, r2.left, node)
+        r2.left = temp
+        temp.parent = r2
+        return rebalance(r2)
+
+
+def merge(r1: TreeNode, r2: TreeNode):
+    node = max_node(r1)
+    r1 = delete(r1, node.val)
+    print(node.val)
+    merge_with_root(r1, r2, node)
+    return node
 
 
 def r_visualize(G, root: TreeNode):
@@ -185,17 +223,21 @@ def visualize(root: TreeNode):
 
 if __name__ == '__main__':
     # insert
-    nums = [10, 20, 30, 40, 50, 25]
-    root = None
-    for num in nums:
-        root = insert(root, num)
-    preorder_print(root)
-
-    # delete
     nums = [9, 5, 10, 0, 6, 11, -1, 1, 2]
     root = None
     for num in nums:
         root = insert(root, num)
     visualize(root)
+
+    # delete
     root = delete(root, 10)
     visualize(root)
+
+    # merge
+    root2 = None
+    for num in [16, 18]:
+        root2 = insert(root2, num)
+    visualize(root2)
+
+    r = merge(root, root2)
+    visualize(r)
