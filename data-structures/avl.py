@@ -1,4 +1,8 @@
 # ref: https://www.geeksforgeeks.org/avl-tree-set-1-insertion/
+#      https://www.geeksforgeeks.org/avl-tree-set-2-deletion/
+import networkx as nx
+import matplotlib.pyplot as plt
+
 
 class TreeNode:
     def __init__(self, val, parent=None, left=None, right=None):
@@ -54,6 +58,10 @@ def insert(root: TreeNode, k):
     return root
 
 
+def height_diff(root: TreeNode):
+    return height(root.left) - height(root.right)
+
+
 #
 #   x                     y
 #  / \       left        / \
@@ -89,6 +97,64 @@ def right_rotate(y: TreeNode):
     return x
 
 
+def delete(root: TreeNode, k):
+    # normal deletion
+    if not root:
+        return root
+
+    if k < root.val:
+        root.left = delete(root.left, k)
+    elif k > root.val:
+        root.right = delete(root.right, k)
+    else:
+        if root.left is None:
+            temp = root.right
+            del root
+            return temp
+
+        if root.right is None:
+            temp = root.left
+            del root
+            return temp
+
+        temp = min_node(root.right)
+        root.val = temp.val
+        root.right = delete(root.right, temp.val)
+
+    if root is None:
+        return root
+
+    # update the height of the ancestor node
+    root = update_height(root)
+
+    # rebalance
+    diff = height_diff(root)
+
+    # left left
+    if diff > 1 and height_diff(root.left) >= 0:
+        return right_rotate(root)
+    # right right
+    if diff < -1 and height_diff(root.right) <= 0:
+        return left_rotate(root)
+    # left right
+    if diff > 1 and height_diff(root.left) < 0:
+        root.left = left_rotate(root.left)
+        return right_rotate(root)
+    # right left
+    if diff < -1 and height_diff(root.right) > 0:
+        root.right = right_rotate(root.right)
+        return left_rotate(root)
+
+    return root
+
+
+def min_node(root: TreeNode):
+    """Left most leaf"""
+    if root is None or root.left is None:
+        return root
+    return min_node(root.left)
+
+
 def preorder_print(root: TreeNode):
     if not root:
         return
@@ -98,12 +164,30 @@ def preorder_print(root: TreeNode):
     preorder_print(root.right)
 
 
+def visualize(G, root: TreeNode):
+    if not root:
+        return root
+
+    G.add_node(root.val)
+    G.add_edge(root.val, visualize(G, root.left))
+    G.add_edge(root.val, visualize(G, root.right))
+    return root.val
+
+
 if __name__ == '__main__':
+    # insert
+    nums = [10, 20, 30, 40, 50, 25]
     root = None
-    root = insert(root, 10)
-    root = insert(root, 20)
-    root = insert(root, 30)
-    root = insert(root, 40)
-    root = insert(root, 50)
-    root = insert(root, 25)
-    preorder_print(root)
+    for num in nums:
+        root = insert(root, num)
+
+    G = nx.DiGraph()
+    visualize(G, root)
+    nx.draw_networkx(G)
+    plt.show()
+
+    # # delete
+    # nums = [9, 5, 10, 0, 6, 11, -1, 1, 2]
+    # root = None
+    # for num in nums:    #     root = insert(root, num)
+    # preorder_print(root)
