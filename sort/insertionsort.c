@@ -6,7 +6,7 @@ void insertion_sort(int *arr, int n)
   int i, j;
   int cur;
 
-  for (int i = 1; i < n; ++i) {
+  for (i = 1; i < n; ++i) {
     cur =  arr[i];
     // shift the precedent list to the right
     for (j = i-1; j >= 0 && arr[j] > cur; --j) {
