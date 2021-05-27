@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void insertion_sort(int arr[], int n)
+void insertion_sort(int *arr, int n)
 {
   for (int i = 1; i < n; ++i) {
     // shift the precedent list to the right
@@ -14,7 +14,7 @@ void insertion_sort(int arr[], int n)
   }
 }
 
-int main()
+int main(void)
 {
   int arr[] = {4, 3, 2, 10, 12, 1, 5, 6};
   int n = sizeof(arr) / sizeof(arr[0]);
@@ -22,7 +22,7 @@ int main()
   insertion_sort(arr, n);
   for (int i = 0; i < n; ++i)
     printf("%d ", arr[i]);
-  printf("\n");
+  putchar('\n');
 
   return 0;
 }
