@@ -11,3 +11,5 @@ __pycache__
 *.txt
 .DS_Store
 tests
+bin/
+*.BAK
