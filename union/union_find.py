@@ -74,7 +74,7 @@ def WeightedQuickUnionUF():
         # link root of smaller tree to larger tree
         if self.sizes[rp] < self.sizes[rq]:
             self.ids[rp] = rq
-            self.ids[rq] += self.sizes[rp]
+            self.sizes[rq] += self.sizes[rp]
         else:
             self.ids[rq] = rp
-            self.ids[rp] += self.sizes[rq]
+            self.sizes[rp] += self.sizes[rq]
