@@ -60,12 +60,12 @@ l_value_at(node_t * head, int idx)
 void
 l_destroy(node_t * head)
 {
-  node_t *temp = head;
+  node_t *temp;
 
   while (head != NULL) {
     temp = head->next;
     free(head);
-    head = head->next;
+    head = temp;
   }
 }
 
@@ -84,6 +84,10 @@ node_t *
 l_push_front(node_t * head, int value)
 {
   node_t *new_node = l_new_node(value);
+
+  if (head == NULL) {
+    return new_node;
+  }
 
   new_node->next = head;
   head = new_node;
@@ -109,8 +113,7 @@ l_push_back(node_t * head, int val)
   node_t *new_node = l_new_node(val);
 
   if (head == NULL) {
-    head = new_node;
-    return head;
+    return new_node;
   }
 
   while (cur->next != NULL) {
