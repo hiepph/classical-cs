@@ -1,6 +1,13 @@
 /* ref: https://www.coursera.org/lecture/algorithms-part1/quicksort-vjvnC */
+/*
+ * Property:
+ * + in-place, space: O(1)
+ * + unstable
+ * + average: O(nlogn), worst: O(n^2) [unlikely if randomize the pivot]
+ */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 void swap(int *a, int *b)
 {
@@ -9,11 +16,18 @@ void swap(int *a, int *b)
   *b = temp;
 }
 
+int
+generate_random_number_in_range(int min, int max)
+{
+  return min + rand() % (max - min + 1);
+}
+
 /*
  * Do the partition by separating all the smaller elements to the left of
  * the pivot, and all the larger elements to the right of the pivot
  *
  * Pivot is chosen randomly for performance guarantee
+ * (not reaching the worst case which is O(n^2))
  *
  * Return the index of the item now known to be in place
  */
@@ -22,7 +36,7 @@ partition(int *A, int l, int h)
 {
   int i, j, pivot;
 
-  pivot = l;
+  pivot = generate_random_number_in_range(l, h);
   i = l;
   j = h;
 
