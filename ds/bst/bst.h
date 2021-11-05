@@ -18,6 +18,12 @@ node_t *bst_insert(node_t * root, int val);
 void bst_print_inorder(node_t * root);
 
 /*
+ * Check if a node is in tree.
+ * Returns 1 if true, else 0.
+ */
+int bst_is_in(node_t * root, int key);
+
+/*
  * Deallocate a bst.
  */
 void bst_destroy(node_t * root);

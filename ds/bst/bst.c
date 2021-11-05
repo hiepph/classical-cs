@@ -47,7 +47,6 @@ bst_destroy(node_t * root)
   };
 }
 
-
 node_t *
 bst_insert(node_t * root, int val)
 {
@@ -67,4 +66,20 @@ bst_insert(node_t * root, int val)
   }
 
   return root;
+}
+
+
+int
+bst_is_in(node_t * root, int key)
+{
+  if (root->val == key)
+    return 1;
+  if (!root || (!root->left && !root->right))
+    return 0;
+
+  if (root->val > key) {
+    return bst_is_in(root->left, key);
+  } else {
+    return bst_is_in(root->right, key);
+  }
 }
