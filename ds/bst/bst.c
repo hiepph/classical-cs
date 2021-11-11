@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "bst.h"
 
 #define panic(msg) { fprintf(stderr, "ERROR: %s\n", msg); exit(EXIT_FAILURE); }
@@ -112,4 +113,28 @@ bst_max_node(node_t * root)
   if (!root || !root->right)
     return root;
   return bst_max_node(root->right);
+}
+
+/*
+ * Ensure that the subtree doesn't hide a value that is
+ * lower or larger than the root allows.
+ */
+int
+is_between(node_t * root, int min_value, int max_value)
+{
+  if (!root)
+    return 1;
+
+  return min_value < root->val && root->val < max_value &&
+    is_between(root->left, min_value, root->val) &&
+    is_between(root->right, root->val, max_value);
+}
+
+int
+is_bst(node_t * root)
+{
+  if (!root)
+    return 1;
+
+  return is_between(root, INT_MIN, INT_MAX);
 }

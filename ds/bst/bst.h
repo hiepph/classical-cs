@@ -43,3 +43,9 @@ node_t *bst_min_node(node_t * root);
  * Get node with the max value
  */
 node_t *bst_max_node(node_t * root);
+
+
+/*
+ * Check if a bst
+ */
+int is_bst(node_t * root);

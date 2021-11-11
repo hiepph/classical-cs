@@ -33,6 +33,9 @@ main(void)
   assert(bst_min_node(root)->val == 3);
   assert(bst_max_node(root)->val == 16);
 
+  /* bst? */
+  assert(is_bst(root));
+
   bst_destroy(root);
   return 0;
 }
