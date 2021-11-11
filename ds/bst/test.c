@@ -29,6 +29,10 @@ main(void)
   /* height */
   assert(bst_height(root) == 3);
 
+  /* min, max node */
+  assert(bst_min_node(root)->val == 3);
+  assert(bst_max_node(root)->val == 16);
+
   bst_destroy(root);
   return 0;
 }

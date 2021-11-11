@@ -97,3 +97,19 @@ bst_height(node_t * root)
     return 0;
   return 1 + max(bst_height(root->left), bst_height(root->right));
 }
+
+node_t *
+bst_min_node(node_t * root)
+{
+  if (!root || !root->left)
+    return root;
+  return bst_min_node(root->left);
+}
+
+node_t *
+bst_max_node(node_t * root)
+{
+  if (!root || !root->right)
+    return root;
+  return bst_max_node(root->right);
+}

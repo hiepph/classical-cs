@@ -32,3 +32,14 @@ void bst_destroy(node_t * root);
  * Get height of a BST
  */
 int bst_height(node_t * root);
+
+
+/*
+ * Get node with the min value
+ */
+node_t *bst_min_node(node_t * root);
+
+/*
+ * Get node with the max value
+ */
+node_t *bst_max_node(node_t * root);
