@@ -26,6 +26,9 @@ main(void)
   assert(bst_is_in(root, 3));
   assert(!bst_is_in(root, 9));
 
+  /* height */
+  assert(bst_height(root) == 3);
+
   bst_destroy(root);
   return 0;
 }

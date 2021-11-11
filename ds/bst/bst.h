@@ -27,3 +27,8 @@ int bst_is_in(node_t * root, int key);
  * Deallocate a bst.
  */
 void bst_destroy(node_t * root);
+
+/*
+ * Get height of a BST
+ */
+int bst_height(node_t * root);

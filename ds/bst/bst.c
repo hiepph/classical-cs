@@ -5,6 +5,12 @@
 #define panic(msg) { fprintf(stderr, "ERROR: %s\n", msg); exit(EXIT_FAILURE); }
 #define check_addr(x) { if ((x) == NULL) panic("Unable to allocate memory"); }
 
+static inline int
+max(int a, int b)
+{
+  return a > b ? a : b;
+}
+
 struct node
 {
   int val;
@@ -82,4 +88,12 @@ bst_is_in(node_t * root, int key)
   } else {
     return bst_is_in(root->right, key);
   }
+}
+
+int
+bst_height(node_t * root)
+{
+  if (!root)
+    return 0;
+  return 1 + max(bst_height(root->left), bst_height(root->right));
 }
