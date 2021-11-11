@@ -36,6 +36,40 @@ main(void)
   /* bst? */
   assert(is_bst(root));
 
+  /* find */
+  root = bst_insert(root, 5);
+  assert(bst_find_node(root, 10) == NULL);
+  assert(bst_find_node(root, 3)->val == 3);
+  assert(bst_find_node(root, 11)->val == 11);
+  assert(bst_find_node(root, 12)->val == 12);
+
+  /* successor */
+  assert(bst_successor_node(root, 4)->val == 5);
+  assert(bst_successor_node(root, 12)->val == 16);
+
+  /* delete */
+  printf("Tree: ");
+  bst_print_inorder(root);
+  printf("\n");
+
+  printf("Delete 3: ");
+  root = bst_delete_value(root, 3);
+  assert(!bst_is_in(root, 3));
+  bst_print_inorder(root);
+  printf("\n");
+
+  printf("Delete 11: ");
+  root = bst_delete_value(root, 11);
+  assert(!bst_is_in(root, 11));
+  bst_print_inorder(root);
+  printf("\n");
+
+  printf("Delete 12: ");
+  root = bst_delete_value(root, 12);
+  assert(!bst_is_in(root, 12));
+  bst_print_inorder(root);
+  printf("\n");
+
   bst_destroy(root);
   return 0;
 }

@@ -49,3 +49,19 @@ node_t *bst_max_node(node_t * root);
  * Check if a bst
  */
 int is_bst(node_t * root);
+
+/*
+ * Find a node in the tree with given value
+ */
+node_t *bst_find_node(node_t * root, int key);
+
+/*
+ * Find the next successor of a node
+ * aka next larger value
+ */
+node_t *bst_successor_node(node_t * root, int key);
+
+/*
+ * Delete the node contain a value
+ */
+node_t *bst_delete(node_t * root, int key);

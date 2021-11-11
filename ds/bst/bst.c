@@ -79,6 +79,9 @@ bst_insert(node_t * root, int val)
 int
 bst_is_in(node_t * root, int key)
 {
+  if (!root)
+    return 0;
+
   if (root->val == key)
     return 1;
   if (!root || (!root->left && !root->right))
@@ -137,4 +140,78 @@ is_bst(node_t * root)
     return 1;
 
   return is_between(root, INT_MIN, INT_MAX);
+}
+
+node_t *
+bst_find_node(node_t * root, int key)
+{
+  if (!root)
+    return NULL;
+  if (root->val == key)
+    return root;
+
+  if (root->val > key && root->left)
+    return bst_find_node(root->left, key);
+  if (root->val < key && root->right)
+    return bst_find_node(root->right, key);
+
+  return NULL;
+}
+
+node_t *
+bst_successor_node(node_t * root, int key)
+{
+  node_t *node = bst_find_node(root, key);
+
+  if (!node->right)
+    return node;
+
+  return bst_min_node(node->right);
+}
+
+/*
+ * 3 cases:
+ *  + no child: delete the node
+ *  + 1 child: connect children to new parent -> delete the node
+ *  + 2 child: find the next successor (min value of right subtree),
+ *             take the successor's value and delete the succesor node
+ */
+node_t *
+bst_delete_value(node_t * root, int key)
+{
+  if (!root)
+    return NULL;
+
+  node_t *temp;
+
+  if (root->val > key && root->left) {
+    root->left = bst_delete_value(root->left, key);
+  } else if (root->val < key && root->right) {
+    root->right = bst_delete_value(root->right, key);
+  } else {
+    if (!root->left && !root->right) {
+      free(root);
+      return NULL;
+    }
+
+    if (!root->left) {
+      temp = root->right;
+      free(root);
+      return temp;
+    }
+
+    if (!root->right) {
+      temp = root->left;
+      free(root);
+      return temp;
+    }
+
+    node_t *successor = bst_min_node(root->right);
+    int successor_value = successor->val;
+
+    root->val = successor_value;
+    root->right = bst_delete_value(root->right, successor_value);
+  }
+
+  return root;
 }
