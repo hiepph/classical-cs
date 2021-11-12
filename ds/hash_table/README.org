@@ -1,7 +1,9 @@
 * Overview
-  An implementation of hash table using open addressing with linear probing.
+  An implementation of hash table with chaining.
 
 * Reference
   Implementation
   + https://cs.yale.edu/homes/aspnes/classes/223/notes.html#hashTables
   + https://github.com/jwasham/practice-c/blob/master/hash_table
+
+  Polynomial hashing: [[https://www.coursera.org/learn/data-structures/lecture/KKYUc/hashing-strings][Coursera]]

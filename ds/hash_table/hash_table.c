@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "hash_table.h"
 
 #define panic(msg) { fprintf(stderr, "ERROR: %s\n", msg); exit(1); }
@@ -9,6 +10,7 @@ struct node
 {
   char *key;
   int value;
+  struct node *next;
 };
 
 struct hash_table
@@ -42,11 +44,92 @@ hash_table_create(const int size)
 void
 hash_table_destroy(hash_table_t * table)
 {
+  node_t *temp;
+
   for (int i = 0; i < table->size; i++) {
     if (table->data[i]) {
-      // TODO: free key
+      while (table->data[i]) {
+	temp = table->data[i]->next;
+	free(table->data[i]);
+	table->data[i] = temp;
+      }
+      free(table->data[i]);
     }
   }
   free(table->data);
   free(table);
+}
+
+/*
+ * Polynomial hash
+ */
+int
+hash(char *key)
+{
+  int multiplier = 263;
+  unsigned int big_prime = 1000000007;
+  int n = strlen(key);
+  int hash = 0;
+
+  for (int i = n - 1; i >= 0; i--) {
+    hash = (hash * multiplier + key[i]) % big_prime;
+  }
+
+  return hash;
+}
+
+
+node_t *
+hash_table_get_node(hash_table_t * table, char *key)
+{
+  int index = hash(key) % table->size;
+
+  if (!table->data[index])
+    return NULL;
+
+  node_t *cur = table->data[index];
+
+  while (cur->next) {
+    cur = cur->next;
+  }
+
+  return cur;
+}
+
+/*
+ * Add new table
+ */
+void
+hash_table_add(hash_table_t * table, char *key, int value)
+{
+  int index = hash(key) % table->size;
+  node_t *node = hash_table_get_node(table, key);
+
+  if (node != NULL) {
+    node->value = value;
+    return;
+  }
+
+  node = malloc(sizeof(node_t));
+  if (node == NULL) {
+    panic("Allocate memory for a (key-value).");
+  }
+  node->key = strdup(key);
+  node->value = value;
+  node->next = NULL;
+  if (table->data[index]) {
+    table->data[index]->next = node;
+  } else {
+    table->data[index] = node;
+  }
+}
+
+int
+hash_table_get(hash_table_t * table, char *key)
+{
+  node_t *node = hash_table_get_node(table, key);
+
+  if (!node)
+    return NULL;
+  return node->value;
 }
