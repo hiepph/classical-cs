@@ -31,3 +31,8 @@ int hash_table_get(hash_table_t * table, char *key);
  * If key exists, update the value.
  */
 void hash_table_add(hash_table_t * table, char *key, int value);
+
+/*
+ * Remove a key from the table.
+ */
+void hash_table_remove(hash_table_t * table, char *key);

@@ -49,6 +49,7 @@ hash_table_destroy(hash_table_t * table)
     if (table->data[i]) {
       while (table->data[i]) {
 	temp = table->data[i]->next;
+	free(table->data[i]->key);
 	free(table->data[i]);
 	table->data[i] = temp;
       }
@@ -138,4 +139,34 @@ hash_table_is_in(hash_table_t * table, char *key)
   node_t *node = hash_table_get_node(table, key);
 
   return node != NULL;
+}
+
+void
+hash_table_remove(hash_table_t * table, char *key)
+{
+  int index = hash(key) % table->size;
+
+  if (!table->data[index])
+    panic("Key is not in the table.");
+
+  node_t *cur = table->data[index];
+  node_t *prev = NULL;
+
+  while (cur) {
+    if (strcmp(cur->key, key) == 0) {
+      if (!prev) {
+	table->data[index] = cur->next;
+	free(cur);
+      } else {
+	prev->next = cur->next;
+	free(cur->key);
+	free(cur);
+      }
+
+      return;
+    }
+
+    prev = cur;
+    cur = cur->next;
+  }
 }

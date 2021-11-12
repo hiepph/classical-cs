@@ -21,6 +21,9 @@ main(void)
   assert(hash_table_is_in(table, "Roma"));
   assert(!hash_table_is_in(table, "Bologna"));
 
+  hash_table_remove(table, "Roma");
+  assert(!hash_table_is_in(table, "Roma"));
+
   hash_table_destroy(table);
   return 0;
 }
