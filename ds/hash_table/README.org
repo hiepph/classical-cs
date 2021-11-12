@@ -1,0 +1,7 @@
+* Overview
+  An implementation of hash table using open addressing with linear probing.
+
+* Reference
+  Implementation
+  + https://cs.yale.edu/homes/aspnes/classes/223/notes.html#hashTables
+  + https://github.com/jwasham/practice-c/blob/master/hash_table
