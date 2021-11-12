@@ -16,6 +16,10 @@ main(void)
   hash_table_add(table, "Roma", 3);
 
   assert(hash_table_get(table, "Turin") == 2);
+  assert(hash_table_get(table, "Milan") == 1);
+
+  assert(hash_table_is_in(table, "Roma"));
+  assert(!hash_table_is_in(table, "Bologna"));
 
   hash_table_destroy(table);
   return 0;

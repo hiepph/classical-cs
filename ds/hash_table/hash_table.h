@@ -17,6 +17,11 @@ void hash_table_destroy(hash_table_t * table);
 int hash(char *key);
 
 /*
+ * Check if key is in the hash table
+ */
+int hash_table_is_in(hash_table_t * table, char *key);
+
+/*
  * Get the value based on key
  */
 int hash_table_get(hash_table_t * table, char *key);

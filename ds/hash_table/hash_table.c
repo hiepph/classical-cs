@@ -5,7 +5,6 @@
 
 #define panic(msg) { fprintf(stderr, "ERROR: %s\n", msg); exit(1); }
 
-
 struct node
 {
   char *key;
@@ -78,7 +77,6 @@ hash(char *key)
   return hash;
 }
 
-
 node_t *
 hash_table_get_node(hash_table_t * table, char *key)
 {
@@ -89,16 +87,16 @@ hash_table_get_node(hash_table_t * table, char *key)
 
   node_t *cur = table->data[index];
 
-  while (cur->next) {
+  while (cur) {
+    if (strcmp(cur->key, key) == 0) {
+      return cur;
+    }
     cur = cur->next;
   }
 
-  return cur;
+  return NULL;
 }
 
-/*
- * Add new table
- */
 void
 hash_table_add(hash_table_t * table, char *key, int value)
 {
@@ -132,4 +130,12 @@ hash_table_get(hash_table_t * table, char *key)
   if (!node)
     return NULL;
   return node->value;
+}
+
+int
+hash_table_is_in(hash_table_t * table, char *key)
+{
+  node_t *node = hash_table_get_node(table, key);
+
+  return node != NULL;
 }
