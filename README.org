@@ -21,10 +21,12 @@
 
 *  Topics
    Linked List
+
    Recursion
    + Divide & Conquer
+
    Sorting
-   * O(n^2):
+   * O(n^2)
      * Bubble Sort
      * Insertion Sort
      * Selection Sort
@@ -33,13 +35,19 @@
      + QuickSort (Unstable)
    * Heap
      + HeapSort
+
    Combinatorics
+
    Trees
    + Binary Search Tree
+
    Hash Table
    + Hash
+
    Heap
+
    Dynamic Programming
+
    Graph
 
 * Structure
