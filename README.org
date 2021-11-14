@@ -20,10 +20,16 @@
    Well, of course some techniques of machine learning or general AI already exists pre-2000 but let's categorize them following the trend.
 
 *  Topics
-   Linked List
+  Union
 
-   Recursion
+  Linked List
+
+  Recursion
    + Divide & Conquer
+
+   Search
+   + O(logn):
+     + Binary search
 
    Sorting
    * O(n^2)
@@ -37,6 +43,7 @@
      + HeapSort
 
    Combinatorics
+   + n choose k
 
    Trees
    + Binary Search Tree
@@ -49,6 +56,8 @@
    Dynamic Programming
 
    Graph
+
+   Bits manipulation
 
 * Structure
   Most algorithms and data structures are implemented in C or Python.
