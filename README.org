@@ -62,4 +62,5 @@
 
 ** Links
    [[https://github.com/jwasham/coding-interview-university][Coding Interview University]]
+
    [[https://cs.yale.edu/homes/aspnes/classes/223/notes.html][Notes on Data Structures and Programming Techniques (CPSC 223, Spring 2021)]]
