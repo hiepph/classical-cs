@@ -1,0 +1,57 @@
+#+title: Classical Computer Science
+#+author: @hiepph
+
+* Overview
+   #+begin_quote
+   What I cannot build. I do not understand.
+   --- Richard Feyman
+   #+end_quote
+
+  This repository is mainly served as an education purpose.
+  It contains my implementation of classical computer science concepts, including algorithms and data structures.
+  It will be an evergrowing list so be patient.
+
+** Classical computer science?
+   Well, it's not a standard term (don't look for it on Google). It's just my personal term for classifying some categories in my learning list.
+   It's inspired from [[https://www.wikiwand.com/en/Classical_physics][Classical Physics]] (e.g. Newton) and [[https://www.wikiwand.com/en/Modern_physics][Modern Physics]] (e.g. Einstein, quantum physics).
+
+   In analogy, classical computer science consists of the [[*Topics]] below (will be gradually updated followed my implementation).
+   Modern computer science consist of machine learning, deep learning, general AI stuffs (which I hope I will find time to implement soon).
+   Well, of course some techniques of machine learning or general AI already exists pre-2000 but let's categorize them following the trend.
+
+*  Topics
+   Linked List
+   Recursion
+   + Divide & Conquer
+   Sorting
+   * O(n^2):
+     * Bubble Sort
+     * Insertion Sort
+     * Selection Sort
+   * Divide & conquer: O(nlogn)
+     + MergeSort (Stable)
+     + QuickSort (Unstable)
+   * Heap
+     + HeapSort
+   Combinatorics
+   Trees
+   + Binary Search Tree
+   Hash Table
+   + Hash
+   Heap
+   Dynamic Programming
+   Graph
+
+* Structure
+  Most algorithms and data structures are implemented in C or Python.
+  If I have implementations in multiple languages, they are divied into two corresponding directories ~c~ and ~python~.
+
+  The detail and references of each implementation is noted in ~README.org~ inside each topic.
+
+* References
+** Books
+   [[https://www.goodreads.com/book/show/108986.Introduction_to_Algorithms][Introduction to Algorithms]]
+
+** Links
+   [[https://github.com/jwasham/coding-interview-university][Coding Interview University]]
+   [[https://cs.yale.edu/homes/aspnes/classes/223/notes.html][Notes on Data Structures and Programming Techniques (CPSC 223, Spring 2021)]]
