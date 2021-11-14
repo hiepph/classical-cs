@@ -10,9 +10,6 @@ class Set():
         self.parent[i] = i
 
     def find(self, i):
-        # while i != self.parent[i]:
-        #     i = self.parent[i]
-        # return i
         if i != self.parent[i]:
             self.parent[i] = self.find(self.parent[i])
         return self.parent[i]
