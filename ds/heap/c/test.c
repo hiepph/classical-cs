@@ -23,10 +23,27 @@ main(void)
   heap_insert(&heap, 11);
   heap_insert(&heap, 17);;
 
+  printf("Original: ");
   heap_print(heap);
+
+  /* get size */
+  assert(heap_get_size(heap) == 11);
 
   /* get max */
   assert(heap_get_max(heap) == 46);
+
+  /* extract max */
+  assert(heap_extract_max(&heap) == 46);
+  printf("Extract max: ");
+  heap_print(heap);
+  assert(heap_get_size(heap) == 10);
+  assert(heap_get_max(heap) == 34);
+
+  assert(heap_extract_max(&heap) == 34);
+  printf("Extract max: ");
+  heap_print(heap);
+  assert(heap_get_size(heap) == 9);
+  assert(heap_get_max(heap) == 19);
 
   return 0;
 }

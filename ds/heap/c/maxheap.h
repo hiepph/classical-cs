@@ -9,3 +9,18 @@ max_heap_t heap_new(int capacity);
  * Insert a new value into heap
  */
 void heap_insert(max_heap_t * heap, int value);
+
+/*
+ * The number of elements stored
+ */
+int heap_get_size(max_heap_t heap);
+
+/*
+ * Get max value
+ */
+int heap_get_max(max_heap_t heap);
+
+/*
+ * Get max value, and remove it
+ */
+int heap_extract_max(max_heap_t * heap);
