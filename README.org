@@ -37,10 +37,10 @@
      * Insertion Sort
      * Selection Sort
    * Divide & conquer: O(nlogn)
-     + MergeSort (Stable)
-     + QuickSort (Unstable)
-   * Heap
-     + HeapSort
+     + MergeSort: Stable
+     + QuickSort: Unstable
+   * Priority Queue
+     + HeapSort: O(nlogn)
 
    Combinatorics
    + n choose k
@@ -50,8 +50,6 @@
 
    Hash Table
    + Hash
-
-   Heap
 
    Dynamic Programming
 

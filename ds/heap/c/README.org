@@ -1,4 +1,5 @@
 * Overview
   Max heap implementation
+
 * References
-  https://www.coursera.org/learn/data-structures/lecture/GRV2q/binary-trees
+  + Heap https://www.coursera.org/learn/data-structures/lecture/GRV2q/binary-trees
