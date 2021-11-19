@@ -45,5 +45,12 @@ main(void)
   assert(heap_get_size(heap) == 9);
   assert(heap_get_max(heap) == 19);
 
+  /* remove */
+  heap_remove(&heap, 4);
+  printf("Remove 17: ");
+  heap_print(heap);
+  assert(heap_get_size(heap) == 8);
+  assert(heap_get_max(heap) == 19);
+
   return 0;
 }

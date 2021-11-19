@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "maxheap.h"
 
 #define MAX_HEAP_MAXSIZE 1000
@@ -168,4 +169,16 @@ heap_extract_max(max_heap_t * heap)
   heap_sift_down(heap, 0);
 
   return max_value;
+}
+
+/*
+ * Change the value to +inf, sift it up.
+ * Extract max
+ */
+void
+heap_remove(max_heap_t * heap, int idx)
+{
+  heap->data[idx] = INT_MAX;
+  heap_sift_up(heap, idx);
+  heap_extract_max(heap);
 }
