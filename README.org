@@ -26,6 +26,7 @@
 
   Recursion
    + Divide & Conquer
+   + Backtracking
 
    Search
    + O(logn):
