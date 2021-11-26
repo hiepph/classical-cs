@@ -1,49 +1,36 @@
-import numpy as np
+#
+# 0/1 knapsack
+# ref:
+# + https://youtu.be/xCbYmUPvc2Q
+# + https://www.wikiwand.com/en/Knapsack_problem
+#
+# time: O(mn)
+# space: O(mn)
+#
+# Args:
+# + values
+# + weights
+# + W: knapsack capacity
+#
+# Returns:
+# maximum value within the capacity
+#
+def knapsack(values, weights, W) -> int:
+    n = len(values)
+    cache = [[0 for _ in range(W + 1)]
+             for _ in range(n + 1)]
 
-T = dict()
+    for i in range(1, n + 1):
+        for j in range(W + 1):
+            if weights[i - 1] > j:
+                cache[i][j] = cache[i - 1][j]
+            else:
+                cache[i][j] = max(
+                    cache[i - 1][j],
+                    cache[i - 1][j - weights[i - 1]] + values[i - 1])
 
-
-def knapsack(w, v, u):
-    if u not in T:
-        T[u] = 0
-
-        for i in range(len(w)):
-            if w[i] <= u:
-                T[u] = max(T[u], knapsack(w, v, u - w[i]) + v[i])
-    return T[u]
-
-
-def iterative_knapsack(w, v, W):
-    T = [0] * (W + 1)
-    for u in range(1, W + 1):
-        for i in range(len(w)):
-            if w[i] <= u:
-                T[u] = max(T[u], T[u - w[i]] + v[i])
-    return T[W]
-
-
-def test_knapsack():
-    assert knapsack(w=[6, 3, 4, 2],
-                    v=[30, 14, 16, 9], u=10) == 48  # 30 + 9 + 9
-    assert iterative_knapsack(w=[6, 3, 4, 2],
-                              v=[30, 14, 16, 9], W=10) == 48  # 30 + 9 + 9
-
-
-def knapsack_without_repetitions(w, v, W):
-    w = [None] + w
-    v = [None] + v
-
-    M = np.zeros((len(w), W + 1))
-    for i in range(1, len(w)):
-        for j in range(1, W + 1):
-            M[i, j] = M[i - 1, j]
-            if w[i] <= j:
-                val = v[i] + M[i - 1, j - w[i]]
-                if M[i, j] < val:
-                    M[i, j] = val
-    return M[-1, -1]
+    return cache[-1][-1]
 
 
-def test_knapsack_without_repetitions():
-    assert knapsack_without_repetitions(
-        w=[6, 3, 4, 2], v=[30, 14, 16, 9], W=10) == 46
+def test():
+    assert(knapsack([60, 50, 70, 30], [5, 3, 4, 2], 5) == 80)
