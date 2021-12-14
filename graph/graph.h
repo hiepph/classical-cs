@@ -10,6 +10,7 @@ typedef struct
   edge_t **edges;
   int edges_len;
   int edges_size;
+  int visited;
 } vertex_t;
 
 typedef struct
@@ -42,3 +43,8 @@ void graph_print(graph_t * g);
  * Garbage collect the graph
  */
 void graph_destroy();
+
+/*
+ * Print the path of Depth First Search from a source.
+ */
+void graph_dfs(graph_t *, int);

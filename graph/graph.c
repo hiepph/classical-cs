@@ -34,8 +34,6 @@ graph_add_vertex(graph_t * g, int u)
 void
 graph_add_edge(graph_t * g, int a, int b, int w)
 {
-  a = a - 'a';
-  b = b - 'a';
   graph_add_vertex(g, a);
   graph_add_vertex(g, b);
 
@@ -63,8 +61,8 @@ graph_print(graph_t * g)
     if (u) {
       for (int j = 0; j < u->edges_len; j++) {
 	if (u->edges[j]) {
-	  printf("%c --> %c (%d)\n",
-		 i + 'a', u->edges[j]->vertex + 'a', u->edges[j]->weight);
+	  printf("%d --> %d (%d)\n",
+		 i, u->edges[j]->vertex, u->edges[j]->weight);
 	}
       }
     }
@@ -88,4 +86,60 @@ graph_destroy(graph_t * g)
   }
 
   free(g);
+}
+
+
+/*
+ * Recursive DFS.
+ * We keep track of the path travelled and the number of visited vertices.
+ */
+void
+dfs_recur(graph_t * g, int s, int *path, int *count)
+{
+  vertex_t *u = g->vertices[s];
+  vertex_t *v;
+
+  u->visited = 1;
+  for (int j = 0; j < u->edges_len; j++) {
+    int d = u->edges[j]->vertex;
+
+    v = g->vertices[d];
+    if (!v->visited) {
+      dfs_recur(g, d, path, count);
+    }
+  }
+
+  path[(*count)++] = s;
+}
+
+/*
+ * Reverse a given array
+ */
+void
+reverse_array(int *A, int n)
+{
+  if (n == 1)
+    return;
+
+  for (int i = 0; i < n / 2; i++) {
+    int temp = A[i];
+
+    A[i] = A[n - 1 - i];
+    A[n - 1 - i] = temp;
+  }
+}
+
+void
+graph_dfs(graph_t * g, int s)
+{
+  int *path = malloc(g->vertices_len * sizeof(int));
+  int count = 0;
+
+  dfs_recur(g, s, path, &count);
+
+  reverse_array(path, count);
+  for (int i = 0; i < count; i++) {
+    printf("%d ", path[i]);
+  }
+  free(path);
 }
