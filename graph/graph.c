@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "graph.h"
 
@@ -54,20 +55,31 @@ graph_add_edge(graph_t * g, int a, int b, int w)
 }
 
 void
-graph_print(graph_t * g, int u)
+graph_print(graph_t * g)
 {
+  for (int i = 0; i < g->vertices_len; i++) {
+    vertex_t *u = g->vertices[i];
 
+    if (u) {
+      for (int j = 0; j < u->edges_len; j++) {
+	if (u->edges[j]) {
+	  printf("%c --> %c (%d)\n",
+		 i + 'a', u->edges[j]->vertex + 'a', u->edges[j]->weight);
+	}
+      }
+    }
+  }
 }
 
 
 void
 graph_destroy(graph_t * g)
 {
-  for (int i = 0; i < g->vertices_size; i++) {
+  for (int i = 0; i < g->vertices_len; i++) {
     vertex_t *v = g->vertices[i];
 
     if (v) {
-      for (int j = 0; j < v->edges_size; j++) {
+      for (int j = 0; j < v->edges_len; j++) {
 	if (v->edges[j])
 	  free(v->edges[j]);
       }

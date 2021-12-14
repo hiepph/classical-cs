@@ -36,7 +36,7 @@ void graph_add_edge(graph_t * g, int a, int b, int w);
 /*
  * Print literal graph
  */
-void graph_print(graph_t * g, int u);
+void graph_print(graph_t * g);
 
 /*
  * Garbage collect the graph
