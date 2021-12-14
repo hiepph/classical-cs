@@ -1,0 +1,10 @@
+* Overview
+  Weighted directed graph implementation with adjacency matrix.
+
+  Undirected graph is directed graph with 2-way edges.
+
+* Reference
+** Dijkstra's algorithm
+   https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C
+** Bellman-Ford
+   [[https://cp-algorithms.com/graph/bellman_ford.html][cp-algorithms]]

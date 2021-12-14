@@ -55,6 +55,11 @@
    Dynamic Programming
 
    Graph
+   + DFS, BFS
+   + Topological Sort
+   + Strong connected components
+   + Dijstrka algorithm: shortest path with positive weights
+   + Bellman-Ford algorithm: shortest path with negative weights, check negative weight cycle, currency exchange
 
    Bits manipulation
 
@@ -70,5 +75,7 @@
 
 ** Links
    [[https://github.com/jwasham/coding-interview-university][Coding Interview University]]
-
    [[https://cs.yale.edu/homes/aspnes/classes/223/notes.html][Notes on Data Structures and Programming Techniques (CPSC 223, Spring 2021)]]
+
+** Courses
+   Coursera's [[https://www.coursera.org/specializations/data-structures-algorithms][Data Structures and Algorithms Specialization]]
