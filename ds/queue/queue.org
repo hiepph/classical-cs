@@ -1,0 +1,6 @@
+* Overview
+  Simple FIFO queue implementation.
+  Use dynamic array to store data in the queue.
+
+* Reference
+  [[https://rosettacode.org/wiki/Queue/Definition#C][Rosetta's implementation]]
