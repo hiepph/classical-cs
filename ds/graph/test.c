@@ -22,6 +22,9 @@ main()
   printf("DFS from 0:\n");
   graph_dfs(g, 0);
 
+  printf("BFS from 0:\n");
+  graph_bfs(g, 0);
+
   graph_destroy(g);
   return 0;
 }

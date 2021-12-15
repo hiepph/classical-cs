@@ -48,3 +48,9 @@ void graph_destroy();
  * Print the path of Depth First Search from a source.
  */
 void graph_dfs(graph_t *, int);
+
+
+/*
+ * Print the path of Breadth First Search from a source.
+ */
+void graph_bfs(graph_t *, int);

@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "graph.h"
+#include "queue.h"
+
+#define panic(msg, ...) { \
+    fprintf(stderr, "ERROR: %s", (msg), ##__VA_ARGS__); \
+    exit(1); \
+  }
+#define check_addr(x) { if ((x) == NULL) panic("Unable to allocate memory"); }
 
 #define INITIAL_ARRAY_SIZE 4
 
@@ -129,6 +136,17 @@ reverse_array(int *A, int n)
   }
 }
 
+/*
+ * Reset graph visited state
+ */
+void
+reset_visited(graph_t * g)
+{
+  for (int i = 0; i < g->vertices_len; i++) {
+    g->vertices[i]->visited = 0;
+  }
+}
+
 void
 graph_dfs(graph_t * g, int s)
 {
@@ -141,5 +159,49 @@ graph_dfs(graph_t * g, int s)
   for (int i = 0; i < count; i++) {
     printf("%d ", path[i]);
   }
+  printf("\n");
+
+  reset_visited(g);
   free(path);
+}
+
+
+void
+graph_bfs(graph_t * g, int s)
+{
+  queue_t *q;
+  int *path;
+  int count;
+  vertex_t *u, *v;
+
+  path = malloc(g->vertices_len * sizeof(int));
+  count = 0;
+
+  q = queue_new();
+  queue_put(q, s);
+  g->vertices[s]->visited = 1;
+  path[count++] = s;
+
+  check_addr(path);
+  while (!queue_is_empty(q)) {
+    u = g->vertices[queue_pop(q)];
+    for (int j = 0; j < u->edges_len; j++) {
+      int v_val = u->edges[j]->vertex;
+      v = g->vertices[v_val];
+      if (!v->visited) {
+        queue_put(q, v_val);
+        path[count++] = v_val;
+        v->visited = 1;
+      }
+    }
+  }
+
+  for (int i = 0; i < count; i++) {
+    printf("%d ", path[i]);
+  }
+  printf("\n");
+
+  reset_visited(g);
+  free(path);
+  queue_destroy(q);
 }
