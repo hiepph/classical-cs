@@ -40,14 +40,16 @@
    * Divide & conquer: O(nlogn)
      + MergeSort: Stable
      + QuickSort: Unstable
-   * Priority Queue
-     + HeapSort: O(nlogn)
+   * HeapSort: O(nlogn)
 
    Combinatorics
    + n choose k
 
    Trees
    + Binary Search Tree
+
+   Heap
+   + Max Heap
 
    Hash Table
    + Hash
@@ -56,10 +58,7 @@
 
    Graph
    + DFS, BFS
-   + Topological Sort
-   + Strong connected components
-   + Dijstrka algorithm: shortest path with positive weights
-   + Bellman-Ford algorithm: shortest path with negative weights, check negative weight cycle, currency exchange
+   + Dijkstra's algorithm
 
    Bits manipulation
 
