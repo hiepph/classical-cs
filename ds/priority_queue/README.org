@@ -1,0 +1,8 @@
+* Overview
+  Implementation of priority queue using a dynamic array as a binary heap.
+
+  The main benefit compared to a max/min heap is we can add an element with defined priority.
+
+* Reference
+  [[https://rosettacode.org/wiki/Priority_queue#C][Rosetta's implementation]]
+  [[https://docs.python.org/3/library/queue.html][Python's priority queue]]
