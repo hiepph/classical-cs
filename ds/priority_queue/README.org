@@ -1,5 +1,6 @@
 * Overview
-  Implementation of priority queue using a dynamic array as a binary heap.
+  Implementation of priority queue using a dynamic array as a min heap.
+  Lower priority number has higher priority.
 
   The main benefit compared to a max/min heap is we can add an element with defined priority.
 

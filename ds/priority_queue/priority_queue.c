@@ -91,7 +91,7 @@ sift_up(heap_t * h, int idx)
   while (idx > 0) {
     parent_idx = parent_index(idx);
 
-    if (h->data[parent_idx]->priority >= h->data[idx]->priority)
+    if (h->data[parent_idx]->priority <= h->data[idx]->priority)
       break;
     swap_node(h, idx, parent_idx);
 
@@ -130,9 +130,9 @@ sift_down(heap_t * h, int idx)
   int l = left_child_index(idx);
   int r = right_child_index(idx);
 
-  if (l < h->len && h->data[l]->priority > h->data[max_idx]->priority)
+  if (l < h->len && h->data[l]->priority < h->data[max_idx]->priority)
     max_idx = l;
-  if (r < h->len && h->data[r]->priority > h->data[max_idx]->priority)
+  if (r < h->len && h->data[r]->priority < h->data[max_idx]->priority)
     max_idx = r;
 
   if (idx != max_idx) {
