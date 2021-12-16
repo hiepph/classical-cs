@@ -139,23 +139,15 @@ reverse_array(int *A, int n)
   }
 }
 
-/*
- * Reset vertices' visited and distant state
- */
-void
-reset_vertices(graph_t * g)
-{
-  for (int i = 0; i < g->vertices_len; i++) {
-    g->vertices[i]->visited = 0;
-    g->vertices[i]->distance = -1;
-  }
-}
-
 void
 graph_dfs(graph_t * g, int s)
 {
   int *path = malloc(g->vertices_len * sizeof(int));
   int count = 0;
+
+  for (int i = 0; i < g->vertices_len; i++) {
+    g->vertices[i]->visited = 0;
+  }
 
   dfs_recur(g, s, path, &count);
 
@@ -165,7 +157,6 @@ graph_dfs(graph_t * g, int s)
   }
   printf("\n");
 
-  reset_vertices(g);
   free(path);
 }
 
@@ -177,6 +168,10 @@ graph_bfs(graph_t * g, int s)
   int *path;
   int count;
   vertex_t *u, *v;
+
+  for (int i = 0; i < g->vertices_len; i++) {
+    g->vertices[i]->visited = 0;
+  }
 
   path = malloc(g->vertices_len * sizeof(int));
   count = 0;
@@ -206,7 +201,6 @@ graph_bfs(graph_t * g, int s)
   }
   printf("\n");
 
-  reset_vertices(g);
   free(path);
   queue_destroy(q);
 }
@@ -246,9 +240,5 @@ graph_dijkstra(graph_t * g, int s, int t)
   heap_destroy(q);
 
   v = g->vertices[t];
-  distance = v->distance == INT_MAX ? -1 : v->distance;
-
-  reset_vertices(g);
-
-  return distance;
+  return v->distance == INT_MAX ? -1 : v->distance;
 }
