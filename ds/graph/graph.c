@@ -213,6 +213,7 @@ graph_dijkstra(graph_t * g, int s, int t)
   int distance;
 
   for (int i = 0; i < g->vertices_len; i++) {
+    g->vertices[i]->prev = -1;
     g->vertices[i]->distance = INT_MAX;
   }
   g->vertices[s]->distance = 0;
@@ -232,6 +233,7 @@ graph_dijkstra(graph_t * g, int s, int t)
       v = g->vertices[v_val];
       if (v->distance > (u->distance + u->edges[j]->weight)) {
 	v->distance = u->distance + u->edges[j]->weight;
+	v->prev = u_val;
 	heap_put(q, v->distance, v_val);
       }
     }
@@ -241,4 +243,30 @@ graph_dijkstra(graph_t * g, int s, int t)
 
   v = g->vertices[t];
   return v->distance == INT_MAX ? -1 : v->distance;
+}
+
+void
+graph_print_path(graph_t * g, int t)
+{
+  vertex_t *v;
+  int cur;
+  int *path = malloc(g->vertices_len * sizeof(int));
+  int count = 0;
+
+  cur = t;
+  v = g->vertices[cur];
+  path[count++] = cur;
+  while (v->prev != -1) {
+    cur = v->prev;
+    v = g->vertices[cur];
+    path[count++] = cur;
+  }
+
+  reverse_array(path, count);
+  for (int i = 0; i < count; i++) {
+    printf("%d ", path[i]);
+  }
+  printf("\n");
+
+  free(path);
 }

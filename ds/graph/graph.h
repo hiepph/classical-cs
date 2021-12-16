@@ -12,6 +12,7 @@ typedef struct
   int edges_size;
   int visited;
   int distance;
+  int prev;			// store the previous visited vertice
 } vertex_t;
 
 typedef struct
@@ -65,3 +66,9 @@ void graph_bfs(graph_t *, int);
  *
  */
 int graph_dijkstra(graph_t *, int, int);
+
+
+/*
+ * Print the path to a vertice
+ */
+void graph_print_path(graph_t * q, int t);

@@ -28,11 +28,13 @@ main()
   graph_bfs(g, 0);
 
   dist = graph_dijkstra(g, 0, 4);
-  printf("(Dijkstra) Distance from 0 -> 4: %d\n", dist);
+  printf("(Dijkstra) Distance from 0 -> 4: %d. Path: ", dist);
+  graph_print_path(g, 4);
   assert(dist == 26);
 
   dist = graph_dijkstra(g, 0, 5);
-  printf("(Dijkstra) Distance from 0 -> 5: %d\n", dist);
+  printf("(Dijkstra) Distance from 0 -> 5: %d. Path: ", dist);
+  graph_print_path(g, 5);
   assert(dist == 11);
 
   graph_destroy(g);
