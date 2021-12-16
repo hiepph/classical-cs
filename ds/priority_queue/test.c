@@ -16,18 +16,21 @@ main(void)
 {
   heap_t *h = heap_new();
 
+  /* put */
   heap_put(h, 1, 1);
   heap_put(h, 3, 3);
   heap_put(h, 5, 5);
 
+  /* pop */
   assert(heap_pop(h), 5);
+  assert(heap_pop(h), 3);
 
   /* resize */
+  heap_put(h, 5, 5);
+  heap_put(h, 3, 3);
   heap_put(h, 0, 0);
   heap_put(h, 2, 2);
   heap_put(h, 4, 4);
-
-  assert(heap_pop(h), 5);
 
   heap_put(h, 6, 6);
   assert(heap_pop(h), 6);

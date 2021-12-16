@@ -45,13 +45,33 @@ heap_destroy(heap_t * h)
   free(h);
 }
 
-
+/*
+ * Calculate the parent index given the child index
+ */
 int
 parent_index(int idx)
 {
   if (idx % 2 == 0)
     return idx / 2 - 1;
   return idx / 2;
+}
+
+/*
+ * Calculate the left child index given the parent index
+ */
+int
+left_child_index(int idx)
+{
+  return 2 * idx + 1;
+}
+
+/*
+ * Calculate the right child index given the parent index
+ */
+int
+right_child_index(int idx)
+{
+  return 2 * idx + 2;
 }
 
 void
@@ -103,10 +123,32 @@ heap_put(heap_t * h, int priority, int val)
   sift_up(h, idx);
 }
 
+void
+sift_down(heap_t * h, int idx)
+{
+  int max_idx = idx;
+  int l = left_child_index(idx);
+  int r = right_child_index(idx);
+
+  if (l < h->len && h->data[l]->priority > h->data[max_idx]->priority)
+    max_idx = l;
+  if (r < h->len && h->data[r]->priority > h->data[max_idx]->priority)
+    max_idx = r;
+
+  if (idx != max_idx) {
+    swap_node(h, idx, max_idx);
+    sift_down(h, max_idx);
+  }
+}
+
 int
 heap_pop(heap_t * h)
 {
   int max_value = h->data[0]->value;
+
+  h->data[0] = h->data[--h->len];
+
+  sift_down(h, 0);
 
   return max_value;
 }
