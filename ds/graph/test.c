@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 #include "graph.h"
 
 int
 main()
 {
   graph_t *g = calloc(1, sizeof(graph_t));
+  int dist;
 
   printf("Graph:\n");
   graph_add_edge(g, 0, 1, 7);
@@ -24,6 +26,14 @@ main()
 
   printf("BFS from 0:\n");
   graph_bfs(g, 0);
+
+  dist = graph_dijkstra(g, 0, 4);
+  printf("(Dijkstra) Distance from 0 -> 4: %d\n", dist);
+  assert(dist == 26);
+
+  dist = graph_dijkstra(g, 0, 5);
+  printf("(Dijkstra) Distance from 0 -> 5: %d\n", dist);
+  assert(dist == 11);
 
   graph_destroy(g);
   return 0;

@@ -1,5 +1,10 @@
+all:
+	gcc -g -o bin/test test.c graph.c \
+		../queue/queue.c ../priority_queue/priority_queue.c \
+		-I../queue -I../priority_queue
+
 test:
-	gcc -g -o bin/test test.c graph.c ../queue/queue.c -I../queue
+	bin/test
 
 clean:
 	rm -rf bin/*

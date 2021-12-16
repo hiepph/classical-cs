@@ -11,6 +11,7 @@ typedef struct
   int edges_len;
   int edges_size;
   int visited;
+  int distance;
 } vertex_t;
 
 typedef struct
@@ -54,3 +55,13 @@ void graph_dfs(graph_t *, int);
  * Print the path of Breadth First Search from a source.
  */
 void graph_bfs(graph_t *, int);
+
+
+/*
+ * Dijkstra's algorithm:
+ * Only valid when all the weights are positive.
+ * Print shortest path (of weights) between two vertices.
+ * Returns the distance between two vertices.
+ *
+ */
+int graph_dijkstra(graph_t *, int, int);

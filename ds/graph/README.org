@@ -3,6 +3,11 @@
 
   Undirected graph is directed graph with 2-way edges.
 
+  It requires some additional libraries:
+  + Iterative DFS (not implemented): Stack
+  + BFS: FIFO Queue
+  + Dijsktra's algorithm: Priority Queue
+
 * Reference
 ** Dijkstra's algorithm
    https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C

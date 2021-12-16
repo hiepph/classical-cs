@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 #include "graph.h"
 #include "queue.h"
+#include "priority_queue.h"
+
 
 #define panic(msg, ...) { \
     fprintf(stderr, "ERROR: %s", (msg), ##__VA_ARGS__); \
@@ -137,13 +140,14 @@ reverse_array(int *A, int n)
 }
 
 /*
- * Reset graph visited state
+ * Reset vertices' visited and distant state
  */
 void
-reset_visited(graph_t * g)
+reset_vertices(graph_t * g)
 {
   for (int i = 0; i < g->vertices_len; i++) {
     g->vertices[i]->visited = 0;
+    g->vertices[i]->distance = -1;
   }
 }
 
@@ -161,7 +165,7 @@ graph_dfs(graph_t * g, int s)
   }
   printf("\n");
 
-  reset_visited(g);
+  reset_vertices(g);
   free(path);
 }
 
@@ -187,11 +191,12 @@ graph_bfs(graph_t * g, int s)
     u = g->vertices[queue_pop(q)];
     for (int j = 0; j < u->edges_len; j++) {
       int v_val = u->edges[j]->vertex;
+
       v = g->vertices[v_val];
       if (!v->visited) {
-        queue_put(q, v_val);
-        path[count++] = v_val;
-        v->visited = 1;
+	queue_put(q, v_val);
+	path[count++] = v_val;
+	v->visited = 1;
       }
     }
   }
@@ -201,7 +206,49 @@ graph_bfs(graph_t * g, int s)
   }
   printf("\n");
 
-  reset_visited(g);
+  reset_vertices(g);
   free(path);
   queue_destroy(q);
+}
+
+int
+graph_dijkstra(graph_t * g, int s, int t)
+{
+  heap_t *q;
+  vertex_t *u, *v;
+  int distance;
+
+  for (int i = 0; i < g->vertices_len; i++) {
+    g->vertices[i]->distance = INT_MAX;
+  }
+  g->vertices[s]->distance = 0;
+
+  q = heap_new();
+  for (int i = 0; i < g->vertices_len; i++) {
+    heap_put(q, g->vertices[i]->distance, i);
+  }
+
+  while (!heap_is_empty(q)) {
+    int u_val = heap_pop(q);
+
+    u = g->vertices[u_val];
+    for (int j = 0; j < u->edges_len; j++) {
+      int v_val = u->edges[j]->vertex;
+
+      v = g->vertices[v_val];
+      if (v->distance > (u->distance + u->edges[j]->weight)) {
+	v->distance = u->distance + u->edges[j]->weight;
+	heap_put(q, v->distance, v_val);
+      }
+    }
+  }
+
+  heap_destroy(q);
+
+  v = g->vertices[t];
+  distance = v->distance == INT_MAX ? -1 : v->distance;
+
+  reset_vertices(g);
+
+  return distance;
 }
