@@ -152,3 +152,10 @@ heap_pop(heap_t * h)
 
   return max_value;
 }
+
+
+int
+heap_is_empty(heap_t * h)
+{
+  return h->len == 0;
+}
