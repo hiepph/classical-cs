@@ -21,6 +21,8 @@
 
 *  Topics
   Union
+  + Quick Find
+  + Quick Union
 
   Linked List
 
@@ -49,7 +51,8 @@
    + Binary Search Tree
 
    Heap
-   + Max Heap
+   + Max/Min Heap
+   + Priority Queue
 
    Hash Table
    + Hash
