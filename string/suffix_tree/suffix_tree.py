@@ -58,13 +58,46 @@ class SuffixTree(object):
                 else:
                     cur.out[text[j]] = Node(text[j:])
 
+    def print_edges(self):
+        """Print out all the edges of the theoretical suffix tree"""
+        self.print_edges_recur(self.root)
 
-def print_edges(result, node):
-    """Print the edges of theoretical suffix tree"""
-    for child in node.out:
-        print(node.out[child].label)
-        collect(result, node.out[child])
+    def print_edges_recur(self, node: Node):
+        for child in node.out:
+            print(node.out[child].label)
+            self.print_edges_recur(node.out[child])
+
+    def has_substring(self, pattern) -> bool:
+        """
+        Returns whether the pattern is found
+        """
+        cur = self.root
+        i = 0
+        while i < len(pattern):
+            c = pattern[i]
+            if c not in cur.out:
+                return False
+            child = cur.out[pattern[i]]
+            label = child.label
+            j = i + 1
+            while j - i < len(label) \
+                    and j < len(pattern) \
+                    and pattern[j] == label[j - i]:
+                j += 1
+            if j - i == len(label):
+                cur = child
+                i = j
+            elif j == len(pattern):
+                return True
+            else:
+                return False
+
+        return False
 
 
 def test():
-    tree = SuffixTree("ACA")
+    tree = SuffixTree("You shall not pass!")
+    # tree.print_edges()
+
+    assert(tree.has_substring("pass"))
+    assert(not tree.has_substring("yes"))
