@@ -1,8 +1,0 @@
-* Overview
-  There are several kinds of queue implementation, for example:
-  + Linked list
-  + Circular buffer
-
-  This implementation is based on linked list
-* Reference
-  [[https://cs.yale.edu/homes/aspnes/classes/223/notes.html#queues][Yale on Queue]]

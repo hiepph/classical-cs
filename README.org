@@ -65,6 +65,10 @@
 
    Bits manipulation
 
+   String:
+   + Trie
+   + Suffix Tree
+
 * Structure
   Most algorithms and data structures are implemented in C or Python.
   If I have implementations in multiple languages, they are divied into two corresponding directories ~c~ and ~python~.
