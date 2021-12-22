@@ -1,0 +1,2 @@
+* Trie
+  Suitable for autocomplete features and multiple patterns matching.
