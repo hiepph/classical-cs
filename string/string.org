@@ -1,0 +1,3 @@
+* Knuth-Morris-Pratt (KMP)
+  Implementation 1: refer [[https://www.youtube.com/watch?v=BXCEFAzhxGY][Back to back SWE]]
+  Implementation 2: refer [[https://www.coursera.org/learn/algorithms-on-strings/home/week/3][Coursera]]

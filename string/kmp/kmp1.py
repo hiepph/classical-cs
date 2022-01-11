@@ -1,5 +1,4 @@
 def kmp(s, pattern):
-    # refer: https://www.youtube.com/watch?v=BXCEFAzhxGY
     res = []
 
     table = build_table(pattern)

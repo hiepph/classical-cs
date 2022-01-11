@@ -68,6 +68,7 @@
    String:
    + Trie
    + Suffix Tree
+   + KMP
 
 * Structure
   Most algorithms and data structures are implemented in C or Python.
