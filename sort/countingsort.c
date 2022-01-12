@@ -2,9 +2,6 @@
 #include <stdlib.h>
 #include <assert.h>
 
-/* ref:
-   https://www.youtube.com/watch?v=1mh2vilbZMg
-   https://www.geeksforgeeks.org/counting-sort */
 void
 counting_sort(int *arr, int n, int k)
 {
