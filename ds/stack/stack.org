@@ -1,0 +1,6 @@
+* Stack
+  Implementation with Python's dequeue - a double-ended queue.
+  It has the feature of adding and removing elements from the either end, thus suitable for push and pop operations of the stack.
+
+* Reference
+  [[https://rosettacode.org/wiki/Stack#Python][Rosetta Code]]
