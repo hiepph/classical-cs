@@ -3,5 +3,7 @@
   + [[https://www.youtube.com/watch?v=1mh2vilbZMg][Back to Back SWE]]
   + [[https://www.geeksforgeeks.org/counting-sort][Geeks for Geeks]]
 
+  Time: O(n+k)
+
 * Heap Sort
   [[https://www.coursera.org/learn/data-structures/lecture/hSzMO/heap-sort][Cousera]]
