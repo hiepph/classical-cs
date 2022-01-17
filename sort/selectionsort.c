@@ -7,7 +7,6 @@ void swap(int *a, int *b)
   *b = temp;
 }
 
-// ref: https://www.geeksforgeeks.org/selection-sort/
 void selection_sort(int *arr, int n)
 {
   int i, j;

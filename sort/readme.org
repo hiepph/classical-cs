@@ -1,3 +1,7 @@
+* Selection Sort
+  O(n^2)
+  [[https://www.geeksforgeeks.org/selection-sort/][geeks for geeks]]
+
 * Counting Sort
   Refer:
   + [[https://www.youtube.com/watch?v=1mh2vilbZMg][Back to Back SWE]]
