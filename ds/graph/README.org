@@ -8,15 +8,21 @@
   + BFS: FIFO Queue
   + Dijsktra's algorithm: Priority Queue
 
+* Topological sort
+  ~python/toposort.py~
+
+  1. DFS
+  2. Sort vertices by reversed post-order
+
 * Minimum spanning Tree (MST)
-  1. Prim algorithm
+  1. Prim algorithm (~python/mst_prim.py~)
      Based on Dijkstra.
 
      Utilizes priority tree, grow by one edge each iteration.
 
      Refer: [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Prim algorithm.
 
-  2. Kruskal algorithm
+  2. Kruskal algorithm (~python/mst_kruskal.py~)
      Repeatedly add lightest edge that doesn't produce a cycle.
 
      Adapts union's quick find to check for connectivity.
