@@ -1,4 +1,4 @@
-* Overview
+* Graph
   Weighted directed graph implementation with adjacency matrix.
 
   Undirected graph is directed graph with 2-way edges.
@@ -7,6 +7,12 @@
   + Iterative DFS (not implemented): Stack
   + BFS: FIFO Queue
   + Dijsktra's algorithm: Priority Queue
+
+* Minimum spanning Tree (MST)
+  Prim algorithm (based on Dijkstra): utilizes priority tree, grow by one edge each iteration.
+
+  Reference:
+  + [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Prim algorithm.
 
 * Reference
 ** Dijkstra's algorithm
