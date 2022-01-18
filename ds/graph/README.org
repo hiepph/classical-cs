@@ -9,13 +9,23 @@
   + Dijsktra's algorithm: Priority Queue
 
 * Minimum spanning Tree (MST)
-  Prim algorithm (based on Dijkstra): utilizes priority tree, grow by one edge each iteration.
+  1. Prim algorithm
+     Based on Dijkstra.
 
-  Reference:
-  + [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Prim algorithm.
+     Utilizes priority tree, grow by one edge each iteration.
+
+     Refer: [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Prim algorithm.
+
+  2. Kruskal algorithm
+     Repeatedly add lightest edge that doesn't produce a cycle.
+
+     Adapts union's quick find to check for connectivity.
+
+     Refer: [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Kruskal algorithm.
 
 * Reference
 ** Dijkstra's algorithm
    https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C
+
 ** Bellman-Ford
    [[https://cp-algorithms.com/graph/bellman_ford.html][cp-algorithms]]
