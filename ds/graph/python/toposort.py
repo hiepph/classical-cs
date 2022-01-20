@@ -1,8 +1,7 @@
 from typing import List, Optional
 
 
-def dfs(G: List[List[int]], visited: List[bool],
-        order: List[int], u: int):
+def dfs(G: List[List[int]], visited: List[bool], order: List[int], u: int):
     visited[u] = True
     for v in G[u]:
         if not visited[v]:
