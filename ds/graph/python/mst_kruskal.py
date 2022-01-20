@@ -36,12 +36,11 @@ def extract_edges(G: List[List[Optional[int]]]) -> List[Tuple[Tuple[int, int], i
     return edges
 
 
-def kruskal(G: List[List[Optional[int]]], start: int) -> (int, Set[Tuple[int, int]]):
+def kruskal(G: List[List[Optional[int]]]) -> (int, Set[Tuple[int, int]]):
     """Kruskal algorithm for Mininum Spanning Tree (MST)
 
     Args:
         G: adjacency represented graph.
-        start: the index of the vertex to start expanding from.
 
     Return:
         The total weight of the minimum spanning tree.
@@ -80,6 +79,6 @@ def test():
          [1, 5, None, 3, None, 9],
          [None, 6, 1, None, 9, 0]]
 
-    total_weight, path = kruskal(G, 2)
+    total_weight, path = kruskal(G)
     assert path == {(0, 1), (0, 3), (0, 4), (1, 5), (2, 5)}
     assert total_weight == 14
