@@ -37,6 +37,17 @@ def dijkstra(edges: List[List[int]], V: int,
 
 def bellman_ford(edges: List[List[int]], V: int,
                  start: int) -> (List[int], List[Optional[int]]):
+    """
+    Args:
+        edges: List of (start, end, weight). Vertex index starts from 0.
+        V: number of nodes
+        start: vertice to calculate the distance from
+
+    Returns:
+        List of distances from current vertice to the start vertice
+        List of parent vertices which is the previous visited vertice
+        before current vertice
+    """
     dist = [math.inf] * V
     prev = [None] * V
 
