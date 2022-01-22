@@ -1,12 +1,25 @@
 * Graph
-  Weighted directed graph implementation with adjacency matrix.
+  =c/=
 
-  Undirected graph is directed graph with 2-way edges.
+  Weighted directed graph implementation with adjacency list.
+  The list contains a list of vertices, each vertex contains a dynamic array of edges.
+  Each edge stores the destination vertex and weight.
+
+  Undirected graph is treated as a directed graph with 2-way edges.
 
   It requires some additional libraries:
   + Iterative DFS (not implemented): Stack
   + BFS: FIFO Queue
   + Dijsktra's algorithm: Priority Queue
+
+* Shortest paths
+*** Dijkstra's algorithm
+    Only works with non-negative weights.
+    Ref: [[https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C][Rosetta Code]]
+
+*** Bellman-Ford
+    Can work with negative weights.
+    Ref: [[https://cp-algorithms.com/graph/bellman_ford.html][cp-algorithms]]
 
 * Topological sort
   ~python/toposort.py~
@@ -30,16 +43,9 @@
      Refer: [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Kruskal algorithm.
 
 * Strongly connected components
+  =python/strongly_connected_components.py=
+
   Reverse the graph and then topological sort to find the sinks (which are the sources of the original graph).
   For each source in the original graph, explore (DFS) to group connected vertices.
 
   Refer: [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Strongly connected components.
-
-* Shortest paths
-*** Dijkstra's algorithm
-    Only works with non-negative weights.
-    Ref: [[https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C][Rosetta Code]]
-
-*** Bellman-Ford
-    Can work with negative weights.
-    Ref: [[https://cp-algorithms.com/graph/bellman_ford.html][cp-algorithms]]
