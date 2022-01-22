@@ -70,26 +70,56 @@ generate_random_number_in_range(int min, int max)
 }
 
 int
-parititon_random_pivot(int *A, int l, int h)
+partition_random_pivot(int *A, int l, int h)
 {
+  int i, j, p;
 
+  p = generate_random_number_in_range(l, h);
+  i = l-1;
+  j = h+1;
+
+  while (1) {
+    while (A[++i] < A[p])
+      if (i == h)
+        break;
+
+    while (A[p] < A[--j])
+      if (j == l)
+        break;
+
+    if (i >= j) break;
+    swap(A, i, j);
+  }
+
+  swap(A, p, j);
+
+  return j;
 }
 
 void
 quick_sort_random_pivot(int *A, int l, int h)
 {
-
+  if (l > h) return;
+  int p = partition_random_pivot(A, l, h);
+  quick_sort_random_pivot(A, l, p-1);
+  quick_sort_random_pivot(A, p+1, h);
 }
 
 
 int main(void)
 {
   int A[] = {4, 3, 2, 10, 12, 1, 5, 6};
-  int n = sizeof(A) / sizeof(A[0]);
+  int n = 8;
 
   quick_sort(A, 0, n - 1);
   for (int i = 0; i < n; ++i)
     printf("%d ", A[i]);
+  putchar('\n');
+
+  int B[] = {4, 3, 2, 10, 12, 1, 5, 6};
+  quick_sort(B, 0, n - 1);
+  for (int i = 0; i < n; ++i)
+    printf("%d ", B[i]);
   putchar('\n');
 
   return 0;
