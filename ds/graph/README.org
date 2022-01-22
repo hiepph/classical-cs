@@ -1,7 +1,9 @@
 * Graph
-  =c/=
+  There are many ways to represent a graph. But there are 2 main representations:
+  + An ajdacency matrix: Each (x, y) coordinate indicates if there is an edge pointing from vertex x to y (0 or 1) or the edge's weight (for a weighed graph).
+  + An adjacency list: List of vertices in which each element stores a list of connected vertices.
 
-  Weighted directed graph implementation with adjacency list.
+  =c/= implements a weighted directed graph, represented with an ajdacency list.
   The list contains a list of vertices, each vertex contains a dynamic array of edges.
   Each edge stores the destination vertex and weight.
 
