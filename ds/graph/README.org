@@ -51,3 +51,10 @@
   For each source in the original graph, explore (DFS) to group connected vertices.
 
   Refer: [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Strongly connected components.
+
+* Is graph bipartite?
+  =python/is_graph_bipartite.py=
+
+  A bipartite graph is graph whose vertices can be divided into two disjoint sets.
+
+  [[https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/440px-Simple-bipartite-graph.svg.png]]
