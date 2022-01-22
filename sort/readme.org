@@ -9,5 +9,11 @@
 
   Time: O(n+k)
 
-* Heap Sort
-  [[https://www.coursera.org/learn/data-structures/lecture/hSzMO/heap-sort][Cousera]]
+* O(nlogn)
+** Heap Sort
+   [[https://www.coursera.org/learn/data-structures/lecture/hSzMO/heap-sort][Cousera]]
+** Merge Sort
+   Stable.
+   Require addtional space to store left and right subarray.
+** Quick Sort
+   Unstable.
