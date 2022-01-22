@@ -53,8 +53,10 @@
   Refer: [[https://www.coursera.org/learn/algorithms-on-graphs][Algorithms on Graph]]: Strongly connected components.
 
 * Is graph bipartite?
-  =python/is_graph_bipartite.py=
+  =python/is_bipartite.py=
 
   A bipartite graph is graph whose vertices can be divided into two disjoint sets.
 
   [[https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/440px-Simple-bipartite-graph.svg.png]]
+
+  Idea: Use BFS to color Red and Blue for adjacent vertices. If 2 adjacent vertices have the same color then the graph is not bipartite.
