@@ -15,13 +15,22 @@
   + Dijsktra's algorithm: Priority Queue
 
 * Shortest paths
-*** Dijkstra's algorithm
-    Only works with non-negative weights.
-    Ref: [[https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C][Rosetta Code]]
+  =python/shorteset_path.py=
 
-*** Bellman-Ford
-    Can work with negative weights.
-    Ref: [[https://cp-algorithms.com/graph/bellman_ford.html][cp-algorithms]]
+** Dijkstra's algorithm
+   Only works with non-negative weights.
+
+   Time: O((V + E)logV)
+
+   Ref:
+   + [[https://www.coursera.org/learn/algorithms-on-graphs/lecture/ZS5pm/dijkstras-algorithm-intuition-and-example][Coursera]]
+   + [[https://www.wikiwand.com/en/Dijkstra's_algorithm#/Pseudocode][wiki]]
+   + C's implementation: [[https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C][Rosetta]]
+
+** Bellman-Ford
+   Can work with negative weights.
+
+   Ref: [[https://cp-algorithms.com/graph/bellman_ford.html][cp-algorithms]]
 
 * Topological sort
   ~python/toposort.py~
