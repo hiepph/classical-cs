@@ -60,3 +60,11 @@
   [[https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Simple-bipartite-graph.svg/440px-Simple-bipartite-graph.svg.png]]
 
   Idea: Use BFS to color Red and Blue for adjacent vertices. If 2 adjacent vertices have the same color then the graph is not bipartite.
+
+* Check if graph contains cycles
+  =python/has_cycle.py=
+
+  + DFS: check for the existence of back edges (edge that points from a vertice to its ancestor)
+  + BFS: check for the existence of cross edges
+
+  Refer: [[https://www.wikiwand.com/en/Cycle_(graph_theory)][wiki]]
