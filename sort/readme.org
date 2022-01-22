@@ -17,3 +17,13 @@
    Require addtional space to store left and right subarray.
 ** Quick Sort
    Unstable.
+
+   In place: O(1) space.
+
+   Time:
+   + Average: O(nlogn)
+   + Worst: O(n^2) (unlikely if randomize the pivot)
+
+   Refer:
+   + https://rosettacode.org/wiki/Sorting_algorithms/Quicksort#C
+   + https://www.coursera.org/lecture/algorithms-part1/quicksort-vjvnC

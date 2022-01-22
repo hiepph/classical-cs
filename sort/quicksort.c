@@ -1,54 +1,48 @@
-/* ref: https://www.coursera.org/lecture/algorithms-part1/quicksort-vjvnC */
-/*
- * Property:
- * + in-place, space: O(1)
- * + unstable
- * + average: O(nlogn), worst: O(n^2) [unlikely if randomize the pivot]
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap(int *a, int *b)
+void swap(int *A, int a, int b)
 {
-  int temp = *a;
-  *a = *b;
-  *b = temp;
-}
-
-int
-generate_random_number_in_range(int min, int max)
-{
-  return min + rand() % (max - min + 1);
+  int temp = A[a];
+  A[a] = A[b];
+  A[b] = temp;
 }
 
 /*
  * Do the partition by separating all the smaller elements to the left of
- * the pivot, and all the larger elements to the right of the pivot
+ * the pivot, and all the larger elements to the right of the pivot.
  *
- * Pivot is chosen randomly for performance guarantee
- * (not reaching the worst case which is O(n^2))
+ * Pivot is chosen default as the first (left-most) element.
+ * The left index will try to find all larger elements,
+ * while the right index will try to find all smaller elements.
+ * Swap those 2 pointers continually.
+ * Finally swap the pivot pointer to achieve the goal.
  *
  * Return the index of the item now known to be in place
  */
 int
 partition(int *A, int l, int h)
 {
-  int i, j, pivot;
+  int i, j, p;
 
-  pivot = generate_random_number_in_range(l, h);
+  p = l;
   i = l;
-  j = h;
+  j = h+1;
 
   while (1) {
-    for (; i < h && A[i] < A[pivot]; ++i);
-    for (; j > l && A[j] > A[pivot]; --j);
+    while (A[++i] < A[p])
+      if (i == h)
+        break;
+
+    while (A[p] < A[--j])
+      if (j == l)
+        break;
 
     if (i >= j) break;
-    swap(&A[i], &A[j]);
+    swap(A, i, j);
   }
 
-  swap(&A[pivot], &A[j]);
+  swap(A, p, j);
 
   return j;
 }
@@ -61,6 +55,30 @@ quick_sort(int *A, int l, int h)
   int p = partition(A, l, h);
   quick_sort(A, l, p-1);
   quick_sort(A, p+1, h);
+}
+
+
+/*
+ *
+ * Pivot is chosen randomly for performance guarantee
+ * (not reaching the worst case which is O(n^2))
+ */
+int
+generate_random_number_in_range(int min, int max)
+{
+  return min + rand() % (max - min + 1);
+}
+
+int
+parititon_random_pivot(int *A, int l, int h)
+{
+
+}
+
+void
+quick_sort_random_pivot(int *A, int l, int h)
+{
+
 }
 
 
