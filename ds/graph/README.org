@@ -28,7 +28,9 @@
    + C's implementation: [[https://rosettacode.org/wiki/Dijkstra%27s_algorithm#C][Rosetta]]
 
 ** Bellman-Ford
-   Can work with negative weights.
+   Can work with negative weights, as long as the graph contains no negative weight cycles.
+
+   Slower than Dijkstra. O(VE)
 
    Ref: [[https://cp-algorithms.com/graph/bellman_ford.html][cp-algorithms]]
 
@@ -77,3 +79,6 @@
   + BFS: check for the existence of cross edges
 
   Refer: [[https://www.wikiwand.com/en/Cycle_(graph_theory)][wiki]]
+
+* Negative weight cycles
+  The presence of negative weight cycles means no existence of shortest paths between any two vertices.
