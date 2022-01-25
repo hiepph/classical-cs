@@ -1,6 +1,19 @@
 * Selection Sort
-  O(n^2)
-  [[https://www.geeksforgeeks.org/selection-sort/][geeks for geeks]]
+  Time: O(n^2)
+
+  Refer: [[https://www.geeksforgeeks.org/selection-sort/][geeks for geeks]]
+
+* Insertion sort
+  Time: O(n^2)
+
+  Refer: https://www.geeksforgeeks.org/insertion-sort/
+
+* Shell sort
+  Time: O(n^2)
+
+  Insertion sort with reducing gap step.
+
+  Refer:[[https://www.geeksforgeeks.org/shellsort/][ geeks for geeks]]
 
 * Counting Sort
   Refer:

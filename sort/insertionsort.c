@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-/* ref: https://www.geeksforgeeks.org/insertion-sort/ */
-void 
+
+void
 insertion_sort(int *arr, int n)
 {
   int i, j;
@@ -18,6 +18,7 @@ insertion_sort(int *arr, int n)
     arr[j + 1] = cur;
   }
 }
+
 
 int
 main(void)

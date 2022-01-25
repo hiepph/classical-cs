@@ -7,8 +7,6 @@ void swap(int *a, int *b)
   *b = temp;
 }
 
-/* ref: https://www.geeksforgeeks.org/shellsort/ */
-/* time: O(n^2) */
 void shell_sort(int *arr, int n)
 {
   int gap;
