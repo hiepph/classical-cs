@@ -1,2 +1,11 @@
 * Activity Selection
   Ref:[[https://www.wikiwand.com/en/Activity_selection_problem][ wiki]]
+
+* Huffman Coding
+  Useful to compress the data which there are occurring characters.
+
+  Time: O(nlogn)
+
+  Ref:
+  + https://www.programiz.com/dsa/huffman-coding
+  + https://rosettacode.org/wiki/Huffman_coding#Python
