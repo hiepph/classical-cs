@@ -1,6 +1,11 @@
 * Longest common subsequence
-  Time: O(mn)
-
-  Space: O(mn)
+  Time: O(mn), space: O(mn), where ~m = len(s1), n = len(s2)~
 
   Ref: https://youtu.be/ASoaQq66foQ
+
+* Edit distance
+  Transform string A to string B with one of these operations: replace, insertion, deletion.
+
+  Time: O(ab), space: O(ab), where ~a = len(A), b = len(B)~
+
+  Ref: https://youtu.be/MiqoA-yF-0M
