@@ -19,14 +19,14 @@ def edit_distance(A: str, B: str):
 
     for i in range(1, a + 1):
         for j in range(1, b + 1):
-            min_op = min(cache[i][j - 1],
-                         cache[i - 1][j],
-                         cache[i - 1][j - 1])
             if A[i - 1] == B[j - 1]:
                 # do nothing
-                cache[i][j] = min_op
+                replace = 0
             else:
-                cache[i][j] = 1 + min_op
+                replace = 1
+            cache[i][j] = min(cache[i - 1][j] + 1,
+                              cache[i][j - 1] + 1,
+                              cache[i - 1][j - 1] + replace)
 
     return cache[a][b]
 
@@ -34,3 +34,4 @@ def edit_distance(A: str, B: str):
 def test():
     assert edit_distance("horse", "ros") == 3
     assert edit_distance("benyam", "ephrem") == 5
+    assert edit_distance("zoologicoarchaeologist", "zoogeologist") == 10
