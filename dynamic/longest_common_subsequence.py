@@ -1,8 +1,3 @@
-#
-# ref: https://youtu.be/ASoaQq66foQ
-# time: O(mn)
-# space: O(mn)
-#
 def longest_common_subsequence(s1: str, s2: str) -> int:
     m = len(s1)
     n = len(s2)
