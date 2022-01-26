@@ -3,8 +3,8 @@ def longest_common_subsequence(s1: str, s2: str) -> int:
     n = len(s2)
     # dynamic table with size (m + 1) x (n + 1)
     # assume we have an empty char at the start of each string
-    cache = [[0 for _ in range(n + 2)]
-             for _ in range(m + 2)]
+    cache = [[0 for _ in range(n + 1)]
+             for _ in range(m + 1)]
 
     for i in range(1, m + 1):
         for j in range(1, n + 1):
