@@ -1,21 +1,11 @@
-#
-# 0/1 knapsack
-# ref:
-# + https://youtu.be/xCbYmUPvc2Q
-# + https://www.wikiwand.com/en/Knapsack_problem
-#
-# time: O(mn)
-# space: O(mn)
-#
-# Args:
-# + values
-# + weights
-# + W: knapsack capacity
-#
-# Returns:
-# maximum value within the capacity
-#
 def knapsack(values, weights, W) -> int:
+    """
+    Args:
+        W: knapsack capacity
+
+    Returns:
+        Maximum value within the capacity
+    """
     n = len(values)
     cache = [[0 for _ in range(W + 1)]
              for _ in range(n + 1)]

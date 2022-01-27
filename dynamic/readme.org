@@ -1,7 +1,14 @@
-* Longest common subsequence
-  Time: O(mn), space: O(mn), where ~m = len(s1), n = len(s2)~
+* Knapsack
+  0/1 knapsack: time O(mn), space O(mn)
 
-  Ref: https://youtu.be/ASoaQq66foQ
+  Ref:
+  + https://youtu.be/xCbYmUPvc2Q
+  + https://www.wikiwand.com/en/Knapsack_problem
+
+** Longest common subsequence
+   Time: O(mn), space: O(mn), where ~m = len(s1), n = len(s2)~
+
+   Ref: https://youtu.be/ASoaQq66foQ
 
 * Edit distance
   Transform string A to string B with one of these operations: replace, insertion, deletion.
