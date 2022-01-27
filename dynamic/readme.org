@@ -2,7 +2,6 @@
   0/1 knapsack: time O(mn), space O(mn)
 
   Ref:
-  + https://youtu.be/xCbYmUPvc2Q
   + https://www.wikiwand.com/en/Knapsack_problem
 
 ** Longest common subsequence
