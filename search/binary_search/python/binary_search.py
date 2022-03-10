@@ -3,10 +3,9 @@ from typing import List
 
 def binary_search(nums: List[int], target: int):
     """Binary search for a *sorted* array"""
-    return bs(nums, target, 0, len(nums) - 1)
+    low = 0
+    high = len(nums) - 1
 
-
-def bs(nums: List[int], target: int, low: int, high: int):
     while low <= high:
         mid = (high + low) // 2
 
