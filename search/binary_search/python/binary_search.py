@@ -24,3 +24,4 @@ def test():
     assert binary_search([1, 2, 8, 9, 12], 8) == 2
     assert binary_search([1, 2, 8, 9], 8) == 2
     assert binary_search([8, 12, 14], 8) == 0
+    assert binary_search([8, 12, 14], 9) == -1
