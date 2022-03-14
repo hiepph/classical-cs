@@ -1,0 +1,4 @@
+* Bisection Algorithm
+Reimplementation of Array Bisection algorithm ([[https://docs.python.org/3.8/library/bisect.html][bisect]] module in Python).
+
+Key idea: modification from the binary search algorithm.
