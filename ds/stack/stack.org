@@ -2,5 +2,19 @@
   Implementation with Python's dequeue - a double-ended queue.
   It has the feature of adding and removing elements from the either end, thus suitable for push and pop operations of the stack.
 
+  This is a faster way. A regular list is a little slower.
+
+* Usage without class abstraction
+#+begin_src python
+from collections import deque
+
+stack = deque()
+stack.append(value) # push
+value = stack.pop # pop
+not stack # is empty?
+#+end_src
+
 * Reference
-  [[https://rosettacode.org/wiki/Stack#Python][Rosetta Code]]
+[[https://rosettacode.org/wiki/Stack#Python][Rosetta Code]]
+
+[[https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks][Using Lists as Stacks]]
