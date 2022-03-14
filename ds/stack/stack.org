@@ -11,6 +11,7 @@ from collections import deque
 stack = deque()
 stack.append(value) # push
 value = stack.pop # pop
+value = stack[-1] # peek
 not stack # is empty?
 #+end_src
 
