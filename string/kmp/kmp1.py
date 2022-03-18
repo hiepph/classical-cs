@@ -1,8 +1,7 @@
 def kmp(s, pattern):
     res = []
 
-    table = build_table(pattern)
-    print(table)
+    table = build_prefix_table(pattern)
 
     i_s = i_p = 0
     while i_s < len(s):
@@ -11,16 +10,15 @@ def kmp(s, pattern):
             i_p += 1
 
         if i_p == len(pattern):
-            # found pattern, backward one index to matched prefix
+            # Found pattern, backward one index to matched prefix.
             res.append(i_s - i_p)
             i_p = table[i_p - 1]
             continue
 
         if pattern[i_p] != s[i_s]:
-            # mismatch,
-            # if index of the pattern is different than zero,
-            # backward one index to matched prefix
-            # else, increase the index of string to continue searching
+            # Mismatch.
+            # If index of the pattern is different than zero, backward one index to matched prefix.
+            # Else, increase the index of string to continue searching.
             if i_p != 0:
                 i_p = table[i_p - 1]
             else:
@@ -29,11 +27,10 @@ def kmp(s, pattern):
     return res
 
 
-def build_table(pattern):
-    # table[i]: where to start matching in pattern
-    # after a mismatch at i+1
-    # aka length of longest suffix which also a prefix
-    # of the pattern from index 0 -> i
+def build_prefix_table(pattern):
+    """table[i]: where to start matching in pattern after a mismatch at i+1.
+    Or it is the length of longest suffix which also a prefix of the pattern from index 0 -> i.
+    """
     table = [0] * len(pattern)
 
     i = 0
@@ -55,5 +52,6 @@ def build_table(pattern):
 
 
 def test():
+    assert kmp("hello", "ll") == [2]
     assert kmp("ABABDABACDABABCABAB", "ABABCABAB") == [10]
     assert kmp("oops, too many oops", "oops") == [0, 15]

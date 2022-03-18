@@ -1,0 +1,16 @@
+* Find substring
+** Knuth-Morris-Pratt (KMP)
+Implementation 1: refer [[https://www.youtube.com/watch?v=BXCEFAzhxGY][Back to back SWE]]
+Implementation 2: refer [[https://www.coursera.org/learn/algorithms-on-strings/home/week/3][Coursera]]
+
+Time: O(n + k), with n is the length of text \amp k is the length of pattern.
+** Rabin-Karp algorithm (or rolling hash algorithm)
+[[https://www.wikiwand.com/en/Rabin%E2%80%93Karp_algorithm][wiki]]
+
+Refer Coursera's data structure hash (week3, 3-6).
+
+* Suffix Tree
+https://www.cs.jhu.edu/~langmea/resources/lecture_notes/suffix_trees.pdf
+
+* Trie
+Suitable for autocomplete features and multiple patterns matching.

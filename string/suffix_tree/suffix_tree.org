@@ -1,2 +1,0 @@
-* Reference
-  + https://www.cs.jhu.edu/~langmea/resources/lecture_notes/suffix_trees.pdf
