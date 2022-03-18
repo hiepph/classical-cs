@@ -1,9 +1,11 @@
 * Find substring
 ** Knuth-Morris-Pratt (KMP)
 1. Implementation 1: refer [[https://www.youtube.com/watch?v=BXCEFAzhxGY][Back to back SWE]]
+
    The traditional algorithm.
 
 2. Implementation 2: refer [[https://www.coursera.org/learn/algorithms-on-strings/home/week/3][Coursera]]
+
    Modified KMP. A more clever implementation.
 
 Time: O(n + m), where n is the length of text \amp m is the length of pattern.
@@ -32,4 +34,3 @@ Suitable for autocomplete features and multiple patterns matching.
 ** Longest common substring
 *** Dynamic
 See Leet's [[https://leetcode.com/problems/longest-common-subsequence/][1143]] problem. Note they're slightly different. Longest common subsequence allows discontinuous characters, while longest common substring requires continuous characters.
-*** Rolling hash
