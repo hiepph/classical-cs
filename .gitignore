@@ -16,4 +16,8 @@ tests
 
 *.o
 
+# build
 bin/
+
+# docs
+ltximg
