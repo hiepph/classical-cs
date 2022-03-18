@@ -27,3 +27,9 @@ https://www.cs.jhu.edu/~langmea/resources/lecture_notes/suffix_trees.pdf
 
 * Trie
 Suitable for autocomplete features and multiple patterns matching.
+
+* Problems
+** Longest common substring
+*** Dynamic
+See Leet's [[https://leetcode.com/problems/longest-common-subsequence/][1143]] problem. Note they're slightly different. Longest common subsequence allows discontinuous characters, while longest common substring requires continuous characters.
+*** Rolling hash
