@@ -1,22 +1,28 @@
-# ref: https://bit.ly/3nGmgOB
+import functools
+
+
+@functools.lru_cache
+def fib0(n):
+    if n <= 1:
+        return n
+    return fib0(n - 1) + fib0(n - 2)
+
 
 D = dict()
 
 
-def fib(n):
-    """cache version. Similar to @functools.lru_cache
-    """
+def fib1(n):
+    """cache version. Similar to @functools.lru_cache"""
     if n not in D:
         if n <= 1:
             D[n] = n
         else:
-            D[n] = fib(n - 1) + fib(n - 2)
+            D[n] = fib1(n - 1) + fib1(n - 2)
     return D[n]
 
 
 def fib2(n):
-    """Storage array
-    """
+    """Storage array"""
     T = [None] * (n + 1)
     T[0], T[1] = 0, 1
     for i in range(2, n + 1):
@@ -25,8 +31,7 @@ def fib2(n):
 
 
 def fib3(n):
-    """Super compact version
-    """
+    """Super compact version"""
     if n <= 1:
         return n
 
@@ -38,6 +43,7 @@ def fib3(n):
 
 
 def test_fib():
-    assert fib(10) == 55
+    assert fib0(10) == 55
+    assert fib1(10) == 55
     assert fib2(10) == 55
     assert fib3(10) == 55

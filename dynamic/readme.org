@@ -15,3 +15,6 @@
   Time: O(ab), space: O(ab), where ~a = len(A), b = len(B)~
 
   Ref: https://youtu.be/MiqoA-yF-0M
+
+* Reference
+[[https://bit.ly/3nGmgOB][Competitve Programmer's core skills]]
