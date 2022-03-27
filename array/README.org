@@ -1,2 +1,11 @@
+* 2 pointers
+Caterpillars: back and front pointers.
+
+* Counter
+Use a dictionary or an array to keep track of elements' frequencies.
+
+* Prefix sums
+Performance trick in overlap sections.
+
 * Prefix sums
 https://codility.com/media/train/3-PrefixSums.pdf
