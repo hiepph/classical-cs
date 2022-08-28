@@ -51,7 +51,7 @@ partition(int *A, int l, int h)
 void
 quick_sort(int *A, int l, int h)
 {
-  if (l > h) return;
+  if (l >= h) return;
   int p = partition(A, l, h);
   quick_sort(A, l, p-1);
   quick_sort(A, p+1, h);
