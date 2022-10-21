@@ -3,7 +3,10 @@ Euclidean algorithm.
 
 Time: O(log(a + b)).
 
-Least common multiple (lcm): $lcm(a, b) = \frac{a \cdot b}{gcd(a, b)}$
 
 ** Reference
 [[https://codility.com/media/train/10-Gcd.pdf][codility]]
+
+* Least common multiple (lcm
+
+$lcm(a, b) = \frac{a \cdot b}{gcd(a, b)}$
