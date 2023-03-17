@@ -9,7 +9,6 @@
 
   This repository is mainly served as an education purpose.
   It contains my implementation of classical computer science concepts, including algorithms and data structures.
-  It will be an evergrowing list so be patient.
 
 ** Classical computer science?
    Well, it's not a standard term (don't look for it on Google). It's just my personal term for classifying some categories in my learning list.
@@ -19,34 +18,20 @@
    Modern computer science consist of machine learning, deep learning, general AI stuffs (which I hope I will find time to implement soon).
    Well, of course some techniques of machine learning or general AI already exists pre-2000 but let's categorize them following the trend.
 
-*  Topics
-  + Union
-  + Linked List
-  + Recursion
-  + Search
-  + Sorting
-  + Combinatorics
-  + Trees
-  + Heap
-  + Hash Table
-  + Dynamic Programming
-  + Graph
-  + Bits manipulation
-  + String:
-
 * Structure
-  Most algorithms and data structures are implemented in C or Python.
-  If I have implementations in multiple languages, they are divied into two corresponding directories ~c~ and ~python~.
+  Most algorithms and data structures are implemented in C, Python or Java.
+
+  If I have implementations in multiple languages, they are divided into two corresponding directories =c=, =python= or =java=.
 
   The detail and references of each implementation is noted in ~README.org~ inside each topic.
 
 * References
 ** Books
-   [[https://www.goodreads.com/book/show/108986.Introduction_to_Algorithms][Introduction to Algorithms]]
+   - [[https://www.goodreads.com/book/show/108986.Introduction_to_Algorithms][Introduction to Algorithms]]
 
 ** Links
-   [[https://github.com/jwasham/coding-interview-university][Coding Interview University]]
-   [[https://cs.yale.edu/homes/aspnes/classes/223/notes.html][Notes on Data Structures and Programming Techniques (CPSC 223, Spring 2021)]]
+   - [[https://github.com/jwasham/coding-interview-university][Coding Interview University]]
+   - [[https://cs.yale.edu/homes/aspnes/classes/223/notes.html][Notes on Data Structures and Programming Techniques (CPSC 223, Spring 2021)]]
 
 ** Courses
-   Coursera's [[https://www.coursera.org/specializations/data-structures-algorithms][Data Structures and Algorithms Specialization]]
+- [[https://www.coursera.org/specializations/data-structures-algorithms][Data Structures and Algorithms Specialization]]

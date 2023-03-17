@@ -1,31 +1,12 @@
-* Dynamic Programming
-1. Break down into sub-problems.
-      + Divide and conquer
-      + Build solution now based on previous remembered solutions (bottom up)
-2. Look for:
-      + Bottlenecks
-      + Unnecessary works
-      + Duplicate works
-3. Cache:
-      + array:1-d, 2-d
-      + Memoization: LRU
 * Knapsack
-  0/1 knapsack: time O(mn), space O(mn)
+  - 0/1 knapsack: time O(mn), space O(mn)
+  - [[https://www.wikiwand.com/en/Knapsack_problem][Wiki]]
 
-  Ref:
-  + https://www.wikiwand.com/en/Knapsack_problem
-
-** Longest common subsequence
-   Time: O(mn), space: O(mn), where ~m = len(s1), n = len(s2)~
-
-   Ref: https://youtu.be/ASoaQq66foQ
+* Longest common subsequence
+- Time: O(mn), space: O(mn), where ~m = len(s1), n = len(s2)~
+- [[https://youtu.be/ASoaQq66foQ][Youtube]]
 
 * Edit distance
-  Transform string A to string B with one of these operations: replace, insertion, deletion.
-
-  Time: O(ab), space: O(ab), where ~a = len(A), b = len(B)~
-
-  Ref: https://youtu.be/MiqoA-yF-0M
-
-* Reference
-[[https://bit.ly/3nGmgOB][Competitve Programmer's core skills]]
+- Transform string A to string B with one of these operations: replace, insertion, deletion.
+- Time: O(ab), space: O(ab), where ~a = len(A), b = len(B)~
+- [[https://youtu.be/MiqoA-yF-0M][Youtube]]
