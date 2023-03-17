@@ -23,8 +23,6 @@
 
   If I have implementations in multiple languages, they are divided into two corresponding directories =c=, =python= or =java=.
 
-  The detail and references of each implementation is noted in ~README.org~ inside each topic.
-
 * References
 ** Books
    - [[https://www.goodreads.com/book/show/108986.Introduction_to_Algorithms][Introduction to Algorithms]]
