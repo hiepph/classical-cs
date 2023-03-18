@@ -1,6 +1,7 @@
 # Knapsack
 
 - [Wiki](https://www.wikiwand.com/en/Knapsack_problem)
+- [Youtube: The 0/1 Knapsack problem](https://www.youtube.com/watch?v=xCbYmUPvc2Q)
 
 # Longest common subsequence
 
