@@ -23,6 +23,15 @@
 
   If I have implementations in multiple languages, they are divided into two corresponding directories =c=, =python= or =java=.
 
+** Python
+- Usually implementations are tested with =pytest=, directly in the files.
+
+- To test:
+
+  #+begin_src python
+pytest <implementation.py>
+  #+end_src
+
 * References
 ** Books
    - [[https://www.goodreads.com/book/show/108986.Introduction_to_Algorithms][Introduction to Algorithms]]
