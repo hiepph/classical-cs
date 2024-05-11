@@ -1,36 +1,34 @@
+* Trie
+Suitable for autocomplete features and multiple patterns matching.
+
+Reference:
++ https://en.wikipedia.org/wiki/Trie
+
+* Suffix Tree
+Reference:
++ https://www.cs.jhu.edu/~langmea/resources/lecture_notes/suffix_trees.pdf
+
 * Find substring
 ** Knuth-Morris-Pratt (KMP)
-1. Implementation 1: refer [[https://www.youtube.com/watch?v=BXCEFAzhxGY][Back to back SWE]]
-
+1. Implementation 1:
    The traditional algorithm.
+   Reference: [[https://www.youtube.com/watch?v=BXCEFAzhxGY][Back to back SWE]].
 
-2. Implementation 2: refer [[https://www.coursera.org/learn/algorithms-on-strings/home/week/3][Coursera]]
-
+2. Implementation 2:
    Modified KMP. A more clever implementation.
+   Reference: [[https://www.coursera.org/learn/algorithms-on-strings/home/week/3][Coursera]].
 
-Time: O(n + m), where n is the length of text \amp m is the length of pattern.
+Time: O(n + m), where n is the length of text and m is the length of pattern.
 
 ** Rabin-Karp algorithm (or rolling hash algorithm)
-Time: n is the length of text \amp m is the length of pattern.
-+ Average and best: O(n + m)
-+ Worst: O(nm)
+Time: n is the length of text, m is the length of pattern.
++ Average and best: O(n + m).
++ Worst: O(nm).
 
 Pros: Easier to implement.
 
 Cons: Assume that a collision will never happen. This can be prevent by using various hash techniques.
 
 *** Reference
-[[https://www.wikiwand.com/en/Rabin%E2%80%93Karp_algorithm][wiki]]
-
-[[https://www.sci.unich.it/~acciaro/Rabin_Karp.pdf][pseudo code]]: [[https://www.programiz.com/dsa/rabin-karp-algorithm][programiz]]
-
-* Suffix Tree
-https://www.cs.jhu.edu/~langmea/resources/lecture_notes/suffix_trees.pdf
-
-* Trie
-Suitable for autocomplete features and multiple patterns matching.
-
-* Problems
-** Longest common substring
-*** Dynamic
-See Leet's [[https://leetcode.com/problems/longest-common-subsequence/][1143]] problem. Note they're slightly different. Longest common subsequence allows discontinuous characters, while longest common substring requires continuous characters.
++ [[https://www.wikiwand.com/en/Rabin%E2%80%93Karp_algorithm][wiki]]
++ [[https://www.programiz.com/dsa/rabin-karp-algorithm][programiz]]
