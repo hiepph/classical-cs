@@ -1,12 +1,7 @@
-#
-# Using Dynamic Programming.
-# Note that /substring/ requires continous characters.
-#
 def longest_common_substring(s1: str, s2: str) -> str:
     m = len(s1)
     n = len(s2)
 
-    # Check for discontinuous characters.
     max_length = 0
     ending_index = m
 
